@@ -28,6 +28,8 @@ export const CONTEXT_CHAIN = `
 
   Format nicely (spacings!, headings, bullets, links, etc.) using Markdown + include supporting images (very important) and cool emojis, wherever relevant! 🚀
   
+  ! IMAGES SHOULD BE VISUALIZED, NOT LINKED !
+
   <context>
     {context}
   </context>
