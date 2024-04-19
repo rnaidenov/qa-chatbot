@@ -47,8 +47,8 @@ export const composeConversationalContextChain = async (
       context: retrievalChain,
     }),
     answerGenerationPrompt,
-    new ChatOpenAI({ modelName: "gpt-4-turbo-preview" }),
-    // new ChatOpenAI({ modelName: "gpt-3.5-turbo-1106" }),
+    // new ChatOpenAI({ modelName: "gpt-4-turbo-preview" }),
+    new ChatOpenAI({ modelName: "gpt-3.5-turbo-1106" }),
     new StringOutputParser(),
   ]);
 
