@@ -11,8 +11,6 @@ export const QA_CHAIN_TEMPLATE = `
 
   Answer only the question asked. Do not provide additional information unless it is necessary to answer the question.
 
-  Format nicely (spacings!, headings, bullets, links, etc.) using Markdown + include images and cool emojis, wherever relevant! 🚀
-
   Keep a warm and friendly tone, like chatting to a good old friend. 
 
   <context>
@@ -27,6 +25,8 @@ rephrase the follow up question to be a standalone question.`;
 export const CONTEXT_CHAIN = `
   Using the below provided context and chat history,
   answer the user's question to the best of your ability using only the resources provided.
+
+  Format nicely (spacings!, headings, bullets, links, etc.) using Markdown + include supporting images (very important) and cool emojis, wherever relevant! 🚀
   
   <context>
     {context}
