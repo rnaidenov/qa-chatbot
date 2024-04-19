@@ -177,7 +177,7 @@ export default function Home() {
                   }
                   {
                     isRatingVisibleFor === index && (
-                      <div className="animate-fade-in relative bottom-0 left-0 right-0 p-2 border-top">
+                      <div className="animate-fade-in relative bottom-0 left-0 right-0 p-2 border-top mt-4">
                         <p className="text-xs mt-1">Rate this response</p>
                         <div className="flex gap-8 items-center">
                           <div>
@@ -188,7 +188,7 @@ export default function Home() {
                             </div>
                             <input
                               type="text"
-                              className='block w-full text-black'
+                              className='block w-full text-black p-2 rounded-sm'
                               placeholder="Any optional comments?"
                               onChange={handleCommentChange}
                             />
