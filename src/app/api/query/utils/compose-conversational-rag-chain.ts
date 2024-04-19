@@ -4,8 +4,6 @@ import { ChatPromptTemplate, MessagesPlaceholder } from "langchain/prompts";
 import { RunnableSequence, RunnablePassthrough, RunnableWithMessageHistory, RunnableConfig } from "langchain/runnables";
 import { StringOutputParser } from "langchain/schema/output_parser";
 import { QA_CHAIN_TEMPLATE, REPHRASE_QUESTION_SYSTEM_TEMPLATE } from '../consts';
-import { convertDocsToWrappedString } from "./convert-docs-to-string";
-
 
 export const composeConversationalContextChain = async (
   sessionId: string,
@@ -50,6 +48,7 @@ export const composeConversationalContextChain = async (
     }),
     answerGenerationPrompt,
     new ChatOpenAI({ modelName: "gpt-4-turbo-preview" }),
+    // new ChatOpenAI({ modelName: "gpt-3.5-turbo-1106" }),
     new StringOutputParser(),
   ]);
 

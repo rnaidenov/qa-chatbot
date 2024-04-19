@@ -1,10 +1,14 @@
 'use client';
 
-import { useEffect, useState, KeyboardEvent, useRef } from 'react';
+import { useEffect, useState, KeyboardEvent, useRef, ChangeEvent } from 'react';
 import { IoSend } from 'react-icons/io5';
 import { IoThumbsUpSharp } from "react-icons/io5";
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import mixpanel from 'mixpanel-browser';
+
+mixpanel.init(process.env.NEXT_PUBLIC_MIXPANEL_TOKEN as string);
+mixpanel.set_config({ persistence: "localStorage" });
 
 interface Message {
   text: string;
@@ -12,13 +16,21 @@ interface Message {
   loading?: boolean;
 }
 
-const INITIAL_BOT_MESSAGE = "Hi, I'm HomaSage. Ask me anything on the existing Knowledge Base that was recently ported to Notion 🧠"
+interface Rating {
+  value: number;
+  comment: string;
+}
+
+const INITIAL_BOT_MESSAGE = "Hi, I'm HomaSage 🧙‍♂️ ! Ask me anything on the existing Knowledge Base that was recently ported to Notion 🧠"
 
 export default function Home() {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState<Message[]>([]);
   const [isRatingVisibleFor, setIsRatingVisibleFor] = useState<number | null>(null);
   const messagesEndRef = useRef<null | HTMLDivElement>(null);
+
+  const [rating, setRating] = useState<Rating>({ value: 5, comment: '' });
+  const [alreadyRated, setAlreadyRated] = useState<Set<number>>(new Set());
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -40,12 +52,35 @@ export default function Home() {
     }
   };
 
-  const handleRatingChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(event.target.value);
+  const handleRatingChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setRating({ ...rating, value: parseInt(event.target.value) });
+  };
+
+  const handleCommentChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setRating({ ...rating, comment: event.target.value });
   };
 
   const submitRating = () => {
-    console.log('Rating submitted');
+    if (!isRatingVisibleFor) {
+      return;
+    }
+
+    const sessionId = localStorage.getItem('sessionId');
+    const question = messages.find((msg, index) => index === isRatingVisibleFor - 1)?.text || '';
+    const response = messages.find((msg, index) => index === isRatingVisibleFor)?.text || '';
+
+    mixpanel.track('[HomaSage]: Rating Submitted', {
+      sessionId: sessionId,
+      rating: rating.value,
+      comment: rating.comment,
+      question: question,
+      response: response,
+      chatHistory: messages
+    });
+
+    setAlreadyRated((alreadyRated) => alreadyRated.add(isRatingVisibleFor));
+    setIsRatingVisibleFor(null);
+    setRating({ value: 5, comment: '' });
   };
 
   useEffect(() => {
@@ -61,10 +96,11 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    const messageContainer = chatBoxRef.current;
-    if (messageContainer && messageContainer.scrollHeight > messageContainer.clientHeight) {
+    const timer = setTimeout(() => {
       scrollToBottom();
-    }
+    }, 0);
+
+    return () => clearTimeout(timer);
   }, [messages]);
 
   useEffect(() => {
@@ -119,15 +155,6 @@ export default function Home() {
     }
   }, [messages]);
 
-  useEffect(() => {
-    const current = chatBoxRef.current;
-    if (current && current.scrollHeight > current.clientHeight) {
-      current.scroll({
-        top: current.scrollHeight,
-        behavior: 'smooth'
-      });
-    }
-  }, [messages]);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-4 bg-[#00171F]">
@@ -136,21 +163,36 @@ export default function Home() {
           {messages.map((msg, index) => (
             <div key={index} className={`relative animate-fade-in mb-2 ${msg.sender === 'bot' ? 'self-start' : 'self-end'}${index === messages.length - 1 ? ' mb-[10%]' : ''}${msg.loading ? ' animate-pulse' : ''}`}>
               {msg.sender === 'bot' ? (
-                <div className='inline-block px-4 py-2 rounded-md bg-[#D68FD6] transition-all duration-300 ease-in-out hover:cursor-pointer hover:bg-[#8E518D]'
-                  onMouseOver={() => setIsRatingVisibleFor(index)}
+                <div className={`inline-block px-4 py-2 rounded-md bg-[#D68FD6] transition-all duration-300 ease-in-out hover:cursor-pointer hover:bg-[#8E518D]${alreadyRated.has(index) ? ' bg-[#8E518D]' : ''}`}
+                  onMouseOver={() => (index !== 0 && msg.text !== '...' && !alreadyRated.has(index)) && setIsRatingVisibleFor(index)}
                   onMouseLeave={() => setIsRatingVisibleFor(null)}
                 >
                   <ReactMarkdown remarkPlugins={[remarkGfm]}>
                     {msg.text}
                   </ReactMarkdown>
                   {
+                    alreadyRated.has(index) && (
+                      <p className="text-xs mt-4 italic animate-fade-in">You have rated this response.</p>
+                    )
+                  }
+                  {
                     isRatingVisibleFor === index && (
-                      <div className="animate-fade-in relative bottom-0 left-0 right-0 p-2">
+                      <div className="animate-fade-in relative bottom-0 left-0 right-0 p-2 border-top">
                         <p className="text-xs mt-1">Rate this response</p>
-                        <div className="flex items-center">
-                          <label className="text-xs font-medium text-[#F2E3EA]">Terrible</label>
-                          <input type="range" min="0" max="10" defaultValue="5" className="slider mx-2" onChange={handleRatingChange} />
-                          <label className="text-xs font-medium text-[#CC8FAB]"><b>Awesome</b></label>
+                        <div className="flex gap-8 items-center">
+                          <div>
+                            <div className='flex items-center mb-4'>
+                              <label className="text-xs font-medium text-[#CC8FAB]">Terrible</label>
+                              <input type="range" min="0" max="10" defaultValue="5" className="slider mx-2" onChange={handleRatingChange} />
+                              <label className="text-xs font-medium text-[#CC8FAB]"><b>Awesome</b></label>
+                            </div>
+                            <input
+                              type="text"
+                              className='block w-full text-black'
+                              placeholder="Any optional comments?"
+                              onChange={handleCommentChange}
+                            />
+                          </div>
                           <button
                             onClick={submitRating}
                             className="ml-2 bg-[#622D46] hover:bg-[#462032] text-white font-bold py-1 px-2 rounded"
@@ -169,7 +211,7 @@ export default function Home() {
               )}
             </div>
           ))}
-          <div ref={messagesEndRef} />
+          <div ref={messagesEndRef} id='msgEndRef' />
         </div>
         <div className="flex w-full max-w-2xl mt-4 h-[10%] absolute bottom-0">
           <input

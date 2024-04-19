@@ -31,3 +31,10 @@ body {
     text-wrap: balance;
   }
 }
+
+a {
+  text-decoration: underline;
+}
+
+a:link { color: #0000EE; }
+a:visited { color: #551A8B; }

@@ -3,37 +3,13 @@ import { Document } from "langchain/document";
 import { ChatPromptTemplate } from "langchain/prompts";
 import { RunnableSequence } from "langchain/runnables";
 import { StringOutputParser } from "langchain/schema/output_parser";
-import { formatDocumentsAsString } from "langchain/util/document";
 import { VectorStoreRetriever } from "langchain/vectorstores/base";
 import { convertDocsToWrappedString } from "./convert-docs-to-string";
+import { CONTEXT_CHAIN } from "../consts";
 
-const TEMPLATE_STRING = `You are an experienced researcher, 
-expert at interpreting and answering questions based on provided sources.
-Using the provided context, answer the user's question 
-to the best of your ability using only the resources provided. 
-Be verbose!
-
-<context>
-
-{context}
-
-</context>
-
-Now, answer this question using the above context:
-
-{question}`;
-
-// const runnableMap = RunnableMap.from({
-//   context: documentRetrievalChain,
-//   question: (input) => input.question,
-// });
-// const res = await runnableMap.invoke({
-//   question: "What would be the impact of outdated info for user manual documentation?"
-// })
-// console.log("🚀 ~ res:", res)
 
 const answerGenerationPrompt = ChatPromptTemplate.fromTemplate(
-  TEMPLATE_STRING
+  CONTEXT_CHAIN
 );
 
 export const createRAGChain = async (
