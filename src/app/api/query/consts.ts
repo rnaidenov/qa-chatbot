@@ -26,10 +26,8 @@ export const CONTEXT_CHAIN = `
   Using the below provided context and chat history,
   answer the user's question to the best of your ability using only the resources provided.
 
-  Format nicely (spacings!, headings, bullets, links, etc.) using Markdown + include supporting images (very important) and cool emojis, wherever relevant! 🚀
+  Format nicely (spacings!, headings, bullets, links, etc.) using Markdown + INCLUDE SUPPORTING IMAGES (very important!) and cool emojis, wherever relevant! 🚀
   
-  ! IMAGES SHOULD BE VISUALIZED, NOT LINKED !
-
   <context>
     {context}
   </context>
