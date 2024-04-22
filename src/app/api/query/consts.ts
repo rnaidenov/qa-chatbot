@@ -33,7 +33,7 @@ export const QA_CHAIN_TEMPLATE = `
   If you do not know something with certainty, say that you DO NOT KNOW. 
   Do not make up information.
   Only direct user to (Homa Support)[https://homagames.notion.site/Homa-Support-6787f93132944add80a8e1b1c662abdc] for more information or suggest they contact HomaGames support.
-  Do not direct them to Support unless it is necessary!
+  Only direct them to support page, if YOU DO NOT KNOW the answer!
 
   Answer only the question asked. Do not provide additional information unless it is necessary to answer the question.
 
