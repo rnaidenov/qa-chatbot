@@ -9,7 +9,7 @@ export const composeConversationalContextChain = async (
   sessionId: string,
   messageHistory: ChatMessageHistory,
   retrievalChain: RunnableSequence<{
-    question: string;
+    standalone_question: string;
   }, string>
 ) => {
   // prompt = system + history + human messages
@@ -24,6 +24,12 @@ export const composeConversationalContextChain = async (
 
   const rephraseQuestionChain = RunnableSequence.from([
     rephraseQuestionPrompt,
+    /**
+     *  Sampling temperature is a parameter used in machine learning models, particularly in language generation, to control the randomness of predictions by scaling the logits before applying softmax. When generating text:
+        A low temperature (close to 0) makes the model more confident in its predictions, leading to more repetitive and predictable text.
+        A high temperature increases randomness, making the model more likely to sample diverse or surprising words, leading to more varied and creative text.
+        A temperature of 1 means no scaling and is considered a neutral temperature, providing a balance between randomness and predictability.
+     */
     new ChatOpenAI({ temperature: 0.1, modelName: "gpt-3.5-turbo-1106" }),
     new StringOutputParser(),
   ]);
@@ -37,18 +43,19 @@ export const composeConversationalContextChain = async (
     ]
   ]);
 
+  // RunnablePassthrough is used to pass down the input to the next runnable
+  // e.g. RunnablePassthrough(...) -> answerGenerationPrompt.invoke(RunnablePassthrough.output)
+
+
   // input to conversationalRetrievalChain with "standalone_question" and "context" keys 
   // get directly passed down to rephraseQuestionChain and retrievalChain
   const conversationalRetrievalChain = RunnableSequence.from([
     RunnablePassthrough.assign({
       standalone_question: rephraseQuestionChain,
-    }),
-    RunnablePassthrough.assign({
       context: retrievalChain,
     }),
     answerGenerationPrompt,
-    new ChatOpenAI({ modelName: "gpt-4-turbo-preview" }),
-    // new ChatOpenAI({ modelName: "gpt-3.5-turbo-1106" }),
+    new ChatOpenAI(),
     new StringOutputParser(),
   ]);
 

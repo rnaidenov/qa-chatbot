@@ -12,6 +12,7 @@
     "@langchain/pinecone": "^0.0.4",
     "ai": "^3.0.23",
     "langchain": "^0.1.33",
+    "langsmith": "^0.1.18",
     "mixpanel-browser": "^2.49.0",
     "next": "14.2.1",
     "react": "^18",

@@ -1,7 +1,7 @@
 import { PineconeStore } from "@langchain/pinecone";
 import { PineconeIndex } from "./utils/pinecone-index";
 import { openAISetup } from "./utils/open-ai-setup";
-import { createRAGChain } from "./utils/create-rag-chain";
+import { createRetrievalChain } from "./utils/create-retrieval-chain";
 import { composeConversationalContextChain } from './utils/compose-conversational-rag-chain';
 import { ChatMessageHistory } from 'langchain/memory';
 import { StreamingTextResponse } from 'ai';
@@ -29,7 +29,7 @@ const handleResponse = async (sessionId: string, question: string): Promise<Read
     );
 
     const retriever = vectorStore.asRetriever();
-    const retrievalChain = await createRAGChain(model, retriever);
+    const retrievalChain = await createRetrievalChain(retriever);
 
     const messageHistory = getMessageHistoryForSession(sessionId);
     const conversationalRAGChain = await composeConversationalContextChain(
