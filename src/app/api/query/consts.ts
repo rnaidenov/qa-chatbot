@@ -11,6 +11,8 @@ export const QA_CHAIN_TEMPLATE = `
 
   Answer only the question asked. Do not provide additional information unless it is necessary to answer the question.
 
+  Format nicely (spacings!, headings, bullets, links, etc.) using Markdown + INCLUDE SUPPORTING IMAGES (very important!) and cool emojis, wherever relevant! 🚀
+
   Keep a warm and friendly tone, like chatting to a good old friend. 
 
   <context>
