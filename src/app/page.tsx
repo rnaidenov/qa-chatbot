@@ -122,6 +122,12 @@ export default function Home() {
       ]);
 
       const fetchAndProcessResponse = async () => {
+        if (messages.length < 2) {
+          return;
+        }
+
+        let lastMessageUpdate = messages[messages.length - 1];
+
         try {
           const response = await fetch('/api/query', {
             method: 'POST',
@@ -141,12 +147,13 @@ export default function Home() {
             const text = new TextDecoder().decode(value);
             setMessages((currentMessages) => {
               const lastMessage = currentMessages[currentMessages.length - 1];
-
-              return currentMessages.slice(0, -1).concat({
+              lastMessageUpdate = {
                 ...lastMessage,
                 text: (lastMessage.text === '...' ? '' : lastMessage.text) + text,
                 loading: false
-              });
+              };
+
+              return currentMessages.slice(0, -1).concat(lastMessageUpdate);
             });
           }
         } catch (error) {
@@ -155,15 +162,14 @@ export default function Home() {
           setIsAnswering(false);
           lastBotMessagePerformance.current = performance.now() - start;
 
-          const question = messages[messages.length - 2];
-          const response = messages[messages.length - 1];
+          const question = messages[messages.length - 1];
 
-          mixpanel.track('[HomaSage]: Performance tracking', {
+          mixpanel.track('[HomaSage]: Track performance', {
             sessionId: localStorage.getItem('sessionId'),
-            performance: lastBotMessagePerformance.current,
+            performanceMilliseconds: lastBotMessagePerformance.current,
             model: 'langchain',
             question,
-            response
+            response: lastMessageUpdate,
           })
         }
       };
