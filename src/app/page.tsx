@@ -32,6 +32,9 @@ export default function Home() {
   const [rating, setRating] = useState<Rating>({ value: 5, comment: '' });
   const [alreadyRated, setAlreadyRated] = useState<Set<number>>(new Set());
 
+  const lastBotMessagePerformance = useRef<number>(0);
+
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }
@@ -107,6 +110,7 @@ export default function Home() {
   useEffect(() => {
     if (messages.length > 0 && messages[messages.length - 1].sender === 'user') {
       setIsAnswering(true);
+      const start = performance.now();
 
       setMessages([
         ...messages,
@@ -149,6 +153,18 @@ export default function Home() {
           console.error('Error in POST /api/query:', error);
         } finally {
           setIsAnswering(false);
+          lastBotMessagePerformance.current = performance.now() - start;
+
+          const question = messages[messages.length - 2];
+          const response = messages[messages.length - 1];
+
+          mixpanel.track('[HomaSage]: Performance tracking', {
+            sessionId: localStorage.getItem('sessionId'),
+            performance: lastBotMessagePerformance.current,
+            model: 'langchain',
+            question,
+            response
+          })
         }
       };
 
