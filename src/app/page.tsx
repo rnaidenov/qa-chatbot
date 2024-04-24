@@ -170,6 +170,7 @@ export default function Home() {
             model: 'langchain',
             question,
             response: lastMessageUpdate,
+            responseCharsCount: lastMessageUpdate.text.length
           })
         }
       };
