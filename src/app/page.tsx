@@ -75,7 +75,8 @@ export default function Home() {
       comment: rating.comment,
       question: question,
       response: response,
-      chatHistory: messages
+      chatHistory: messages,
+      model: 'dust'
     });
 
     setAlreadyRated((alreadyRated) => alreadyRated.add(isRatingVisibleFor));
