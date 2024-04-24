@@ -123,8 +123,9 @@ const streamMessages = async (agentMessageId: string, onText: (text: string) => 
 
     const reader = streamResponse.body.getReader();
     const decoder = new TextDecoder('utf-8');
+    let keepGoing = true;
 
-    while (true) {
+    while (keepGoing) {
       let { value, done } = await reader.read();
       if (done) break;
 
@@ -145,6 +146,12 @@ const streamMessages = async (agentMessageId: string, onText: (text: string) => 
           } catch (error) {
             console.error('Error parsing JSON data:', error);
           }
+        }
+
+        if (line.includes('agent_generation_success')) {
+          console.log('Agent generation success');
+          keepGoing = false;
+          return;
         }
       }
     }
