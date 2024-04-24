@@ -161,7 +161,7 @@ export default function Home() {
           mixpanel.track('[HomaSage]: Performance tracking', {
             sessionId: localStorage.getItem('sessionId'),
             performance: lastBotMessagePerformance.current,
-            model: 'langchain',
+            model: 'dust',
             question,
             response
           })
