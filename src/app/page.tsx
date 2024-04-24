@@ -170,6 +170,7 @@ export default function Home() {
             model: 'dust',
             question,
             response: lastMessageUpdate,
+            responseCharsCount: lastMessageUpdate.text.length
           })
         }
       };
