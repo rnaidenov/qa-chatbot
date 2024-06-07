@@ -7,7 +7,10 @@ import { StreamingTextResponse } from 'ai';
 import { ChatOpenAI, OpenAIEmbeddings } from "@langchain/openai";
 import { PromptTemplate } from "@langchain/core/prompts";
 
-const embeddings = new OpenAIEmbeddings();
+const embeddings = new OpenAIEmbeddings({
+  model: "text-embedding-3-large",
+  dimensions: 3072,
+});
 const pineconeIndex = PineconeIndex.RagApp;
 
 const handleResponse = async (sessionId: string, question: string): Promise<ReadableStream<string>> => {
