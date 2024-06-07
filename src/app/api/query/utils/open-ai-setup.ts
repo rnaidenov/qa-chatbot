@@ -1,5 +1,4 @@
-import { ChatOpenAI } from "langchain/chat_models/openai";
-import { OpenAIEmbeddings } from "langchain/embeddings/openai";
+import { ChatOpenAI, OpenAIEmbeddings } from "@langchain/openai";
 
 export const openAISetup = (modelName?: string) => {
   const model = new ChatOpenAI({

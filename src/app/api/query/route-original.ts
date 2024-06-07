@@ -33,7 +33,7 @@ const handleResponse = async (sessionId: string, question: string): Promise<Read
 
     const messageHistory = getMessageHistoryForSession(sessionId);
     const conversationalRAGChain = await composeConversationalContextChain(
-      sessionId, messageHistory, retrievalChain, retriever
+      sessionId, messageHistory, retrievalChain
     );
 
     return conversationalRAGChain(question);

@@ -1,9 +1,9 @@
 import { PineconeStore } from "@langchain/pinecone";
 import { Document } from "langchain/document";
-import { ChatPromptTemplate } from "langchain/prompts";
-import { RunnableSequence } from "langchain/runnables";
+import { ChatPromptTemplate } from "@langchain/core/prompts";
+import { RunnableSequence } from "@langchain/core/runnables";
 import { StringOutputParser } from "@langchain/core/output_parsers";
-import { VectorStoreRetriever } from "langchain/vectorstores/base";
+import { VectorStoreRetriever } from "@langchain/core/vectorstores";
 import { convertDocsToWrappedString } from "./convert-docs-to-string";
 import { QA_CHAIN_TEMPLATE } from "../consts";
 
