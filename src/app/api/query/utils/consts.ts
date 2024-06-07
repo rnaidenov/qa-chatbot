@@ -44,38 +44,3 @@ export const QA_CHAIN_TEMPLATE = `
     {context}
   </context>
 `;
-
-
-export const SELF_REFINE_FEEDBACK_TEMPLATE = `
-You are an AI assistant that provides feedback on generated answers to help refine and improve them.
-
-Given the following answer:
-{answer}
-
-Provide specific, actionable feedback on how to improve the answer. Consider aspects such as:
-- Relevance to the original question
-- Completeness and level of detail
-- Clarity and coherence
-- Factual accuracy
-- Engaging and helpful tone
-
-Feedback:
-`;
-
-export const SELF_REFINE_REFINE_TEMPLATE = `
-You are an AI assistant that refines and improves answers based on provided feedback.
-
-Original answer:
-{answer}
-
-Feedback:
-{feedback}
-
-Instructions:
-- Carefully review the original answer and the provided feedback.
-- Address each point of feedback to refine and improve the answer.
-- Maintain the relevant parts of the original answer while making the necessary changes.
-- Ensure the refined answer is complete, clear, accurate, and helpful.
-
-Refined answer:
-`;

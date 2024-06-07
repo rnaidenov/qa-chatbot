@@ -1,25 +1,14 @@
 import { PineconeStore } from "@langchain/pinecone";
 import { PineconeIndex } from "./utils/pinecone-index";
-import { openAISetup } from "./utils/open-ai-setup";
-import { createRetrievalChain } from "./utils/create-retrieval-chain";
+import { MultiQueryRetriever } from "langchain/retrievers/multi_query";
 import { composeConversationalContextChain } from './utils/compose-conversational-rag-chain';
-import { ChatMessageHistory } from 'langchain/memory';
+import { pull } from "langchain/hub";
 import { StreamingTextResponse } from 'ai';
+import { ChatOpenAI, OpenAIEmbeddings } from "@langchain/openai";
+import { PromptTemplate } from "@langchain/core/prompts";
 
-const { model, embeddings } = openAISetup();
-
+const embeddings = new OpenAIEmbeddings();
 const pineconeIndex = PineconeIndex.RagApp;
-
-const messageHistories = {} as Record<string, ChatMessageHistory>;
-
-const getMessageHistoryForSession = (sessionId: string) => {
-  if (messageHistories[sessionId] !== undefined) {
-    return messageHistories[sessionId];
-  }
-  const newChatSessionHistory = new ChatMessageHistory();
-  messageHistories[sessionId] = newChatSessionHistory;
-  return newChatSessionHistory;
-}
 
 const handleResponse = async (sessionId: string, question: string): Promise<ReadableStream<string>> => {
   try {
@@ -28,13 +17,18 @@ const handleResponse = async (sessionId: string, question: string): Promise<Read
       { pineconeIndex }
     );
 
-    const retriever = vectorStore.asRetriever();
-    const retrievalChain = await createRetrievalChain(retriever);
+    const multiQueryPrompt = await pull('jacob/multi-query-retriever') as PromptTemplate;
 
-    const messageHistory = getMessageHistoryForSession(sessionId);
-    const conversationalRAGChain = await composeConversationalContextChain(
-      sessionId, messageHistory, retrievalChain, retriever
-    );
+    const llm = new ChatOpenAI({ model: "gpt-4o", temperature: 0 });
+
+    const retriever = MultiQueryRetriever.fromLLM({
+      llm,
+      verbose: true,
+      prompt: multiQueryPrompt,
+      retriever: vectorStore.asRetriever(),
+    });
+
+    const conversationalRAGChain = await composeConversationalContextChain({ sessionId, retriever, llm });
 
     return conversationalRAGChain(question);
   } catch (error) {

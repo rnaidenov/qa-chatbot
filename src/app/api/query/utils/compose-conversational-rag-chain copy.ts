@@ -4,7 +4,7 @@ import { ChatMessageHistory } from "langchain/memory";
 import { ChatPromptTemplate, MessagesPlaceholder } from "@langchain/core/prompts";
 import { RunnableSequence, RunnablePassthrough, RunnableWithMessageHistory, RunnableConfig } from "@langchain/core/runnables";
 import { StringOutputParser } from "@langchain/core/output_parsers";
-import { QA_CHAIN_TEMPLATE, REPHRASE_QUESTION_SYSTEM_TEMPLATE, SELF_REFINE_FEEDBACK_TEMPLATE, SELF_REFINE_REFINE_TEMPLATE } from '../consts';
+import { QA_CHAIN_TEMPLATE, REPHRASE_QUESTION_SYSTEM_TEMPLATE, SELF_REFINE_FEEDBACK_TEMPLATE, SELF_REFINE_REFINE_TEMPLATE } from './consts';
 import { UpstashRedisChatMessageHistory } from "@langchain/community/stores/message/upstash_redis";
 import { HumanMessage, AIMessage } from "@langchain/core/messages";
 import { formatDocumentsAsString } from "langchain/util/document";
