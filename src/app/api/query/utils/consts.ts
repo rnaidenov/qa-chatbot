@@ -23,6 +23,8 @@ export const QA_CHAIN_TEMPLATE = `
   
   - DO NOT provide any information that is not related to the user's question.
 
+  - DO NOT repeat information that is already provided in the context or chat history.
+
   - Format nicely (spacings!, headings, bullets, links, etc.) using Markdown + INCLUDE SUPPORTING IMAGES (very important!) and cool emojis, wherever relevant! 🚀
 
   - Keep a warm and friendly tone, like chatting to a good old friend. 
@@ -31,4 +33,9 @@ export const QA_CHAIN_TEMPLATE = `
   <context>
     {context}
   </context>
+ 
+  ## HISTORY:
+  <history>
+    {history}
+  </history>
 `;
