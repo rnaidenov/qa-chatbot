@@ -1,34 +1,31 @@
-import { PineconeStore } from "@langchain/pinecone";
-import { PineconeIndex } from "./utils/pinecone-index";
-import { MultiQueryRetriever } from "langchain/retrievers/multi_query";
 import { composeConversationalContextChain } from './utils/compose-conversational-rag-chain';
-import { pull } from "langchain/hub";
 import { StreamingTextResponse } from 'ai';
 import { ChatOpenAI, OpenAIEmbeddings } from "@langchain/openai";
-import { PromptTemplate } from "@langchain/core/prompts";
+import { MatryoshkaRetriever } from "langchain/retrievers/matryoshka_retriever";
+import { QdrantVectorStore } from "@langchain/qdrant";
 
-const embeddings = new OpenAIEmbeddings({
-  model: "text-embedding-3-large",
-  dimensions: 3072,
+const smallEmbeddings = new OpenAIEmbeddings({
+  model: "text-embedding-3-small",
+  dimensions: 512,
 });
-const pineconeIndex = PineconeIndex.RagApp;
+const largeEmbeddings = new OpenAIEmbeddings({
+  model: "text-embedding-3-large",
+  dimensions: 1536,
+});
 
 const handleResponse = async (sessionId: string, question: string): Promise<ReadableStream<string>> => {
   try {
-    const vectorStore = await PineconeStore.fromExistingIndex(
-      embeddings,
-      { pineconeIndex }
-    );
-
-    const multiQueryPrompt = await pull('jacob/multi-query-retriever') as PromptTemplate;
-
     const llm = new ChatOpenAI({ model: "gpt-4o", temperature: 0 });
 
-    const retriever = MultiQueryRetriever.fromLLM({
-      llm,
-      verbose: true,
-      prompt: multiQueryPrompt,
-      retriever: vectorStore.asRetriever(),
+    const vectorStore = new QdrantVectorStore(smallEmbeddings, {
+      url: process.env.QDRANT_URL,
+      collectionName: "qa-chatbot",
+    })
+
+    const retriever = new MatryoshkaRetriever({
+      vectorStore,
+      largeEmbeddingModel: largeEmbeddings,
+      largeK: 5,
     });
 
     const conversationalRAGChain = await composeConversationalContextChain({ sessionId, retriever, llm });

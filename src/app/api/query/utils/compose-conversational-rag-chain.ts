@@ -20,7 +20,6 @@ export const composeConversationalContextChain = async ({
     ]
   ]);
 
-
   const answerChain = RunnableSequence.from([
     RunnablePassthrough.assign({
       context: (input: Record<string, unknown>) => {

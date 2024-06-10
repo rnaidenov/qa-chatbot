@@ -10,6 +10,9 @@ import { PineconeStore } from "@langchain/pinecone";
 import { OpenAIEmbeddings } from "@langchain/openai";
 import { PineconeIndex } from "./pinecone-index";
 import { MatryoshkaRetriever } from "langchain/retrievers/matryoshka_retriever";
+import { Chroma } from "@langchain/community/vectorstores/chroma";
+import { QdrantVectorStore } from "@langchain/qdrant";
+
 
 export const loadAndEmbedDocuments = async (
   folderSrc: string,
@@ -18,27 +21,45 @@ export const loadAndEmbedDocuments = async (
     folderSrc,
   );
 
-  const docs = await loader.load();
-
-
+  const smallEmbeddings = new OpenAIEmbeddings({
+    model: "text-embedding-3-small",
+    dimensions: 512, // Min num for small
+  });
   const largeEmbeddings = new OpenAIEmbeddings({
     model: "text-embedding-3-large",
-    dimensions: 3072,
+    dimensions: 1536, // Max num for large
   });
 
+  const vectorStore = new QdrantVectorStore(smallEmbeddings, {
+    url: process.env.QDRANT_URL || "http://localhost:6333",
+    apiKey: process.env.QDRANT_API_KEY,
+    collectionName: "qa-chatbot",
+  })
 
-  const splitter = new RecursiveCharacterTextSplitter({
-    chunkSize: 500,
-    chunkOverlap: 50,
+  const retriever = new MatryoshkaRetriever({
+    vectorStore,
+    largeEmbeddingModel: largeEmbeddings,
+    largeK: 5,
   });
-  const splitDocuments = await splitter.splitDocuments(docs);
+  const docs = await loader.load();
 
-  await PineconeStore.fromDocuments(
-    splitDocuments,
-    largeEmbeddings, {
-    pineconeIndex: PineconeIndex.RagApp,
-    maxConcurrency: 5,
-  });
+  await retriever.addDocuments(docs);
+  const query = "How to delete an idea?";
+  const results = await retriever.invoke(query);
+  console.log(results.map(({ pageContent }) => pageContent).join("\n"));
+
+  // const splitter = new RecursiveCharacterTextSplitter({
+  //   chunkSize: 500,
+  //   chunkOverlap: 50,
+  // });
+  // const splitDocuments = await splitter.splitDocuments(docs);
+
+  // await PineconeStore.fromDocuments(
+  //   splitDocuments,
+  //   largeEmbeddings, {
+  //   pineconeIndex: PineconeIndex.RagApp,
+  //   maxConcurrency: 5,
+  // });
 };
 
 // await loadAndEmbedDocuments('./notion');
