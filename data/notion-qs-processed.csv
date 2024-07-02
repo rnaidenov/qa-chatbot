@@ -1,0 +1,232 @@
+Question,Response
+"I am unable to submit build for review on appstoreconnect. I didn't dd any game center entitlement myself. Did something change with HB setup?
+
+Here is the error I get when I click on ""add for review"" on appstoreconnect.
+
+To submit a build with the Game Center entitlement, you must select the Game Center checkbox.","Hey there! 🌟
+
+It sounds like you're encountering an issue with the Game Center entitlement when trying to submit your build on App Store Connect. This can happen if the Game Center entitlement is somehow included in your build, even if you didn't add it yourself.
+
+Here's a step-by-step guide to help you resolve this issue:
+
+### Step-by-Step Solution
+
+1. **Check Your Xcode Project Settings:**
+   - Open your project in Xcode.
+   - Go to the **Capabilities** tab.
+   - Ensure that the **Game Center** capability is turned off. If it's on, turn it off and rebuild your project.
+
+2. **Check Your Entitlements File:**
+   - In your Xcode project, locate the `.entitlements` file.
+   - Make sure there is no entry for `com.apple.developer.game-center` in this file. If there is, remove it.
+
+3. **Rebuild Your Project:**
+   - After making the above changes, clean and rebuild your project.
+   - Go to **Product** > **Clean Build Folder** in Xcode.
+   - Then, rebuild your project.
+
+4. **Re-upload Your Build:**
+   - Once your project is rebuilt without the Game Center entitlement, re-upload your build to App Store Connect.
+   - Try submitting it for review again.
+
+### Additional Resources
+
+If you continue to face issues, you might want to check out the following resources:
+- [Apple's Documentation on Game Center](https://developer.apple.com/documentation/gamekit/setting_up_game_center_in_your_app)
+- [App Store Connect Help](https://developer.apple.com/support/app-store-connect/)
+
+### Screenshots for Reference
+
+Here are some screenshots to guide you through the process:
+
+#### Disabling Game Center Capability
+![Disabling Game Center Capability](https://support.homagames.com/hs-fs/hubfs/Screenshot%202023-01-24%20at%2010.43.56.png?width=688&height=173&name=Screenshot%202023-01-24%20at%2010.43.56.png)
+
+#### Checking Entitlements File
+![Checking Entitlements File](https://support.homagames.com/hs-fs/hubfs/Screenshot%202023-01-24%20at%2010.43.11.png?width=688&height=176&name=Screenshot%202023-01-24%20at%2010.43.11.png)
+
+If you still encounter issues after following these steps, please let me know, and we can explore further solutions together. 🚀
+
+Feel free to reach out again if you have any more questions or need further assistance!"
+Duplicate phoma sdk code when cleaning up the library folder I get these errors GUID [be4c2abe0582147efa9bc60bce57ef0c] for asset 'Packages/com.homagames.sdk-core/Analytics' conflicts with: 'Assets/Homa Games/Homa Belly/Core/Analytics' (current owner) We can't assign a new GUID because the asset is in an immutable folder. The asset will be ignored.,"Hey there! 👋
+
+It looks like you're encountering a GUID conflict issue with the Homa SDK when cleaning up the library folder. This typically happens when there are duplicate assets with the same GUID in different locations. Here's how you can resolve this:
+
+### Steps to Resolve GUID Conflict
+
+1. **Identify the Duplicate Assets:**
+   - The error message indicates that the asset `Analytics` is present in both `Packages/com.homagames.sdk-core/Analytics` and `Assets/Homa Games/Homa Belly/Core/Analytics`.
+
+2. **Remove the Duplicate:**
+   - Decide which version of the asset you want to keep. Typically, you should keep the one in the `Packages` folder as it is managed by the package manager.
+   - Delete the duplicate asset from the `Assets` folder. In this case, delete `Assets/Homa Games/Homa Belly/Core/Analytics`.
+
+3. **Reimport the Project:**
+   - After deleting the duplicate asset, reimport the project to ensure that Unity updates its asset database.
+   - You can do this by right-clicking in the Project window and selecting `Reimport All`.
+
+4. **Clear the Library Folder (Optional):**
+   - If the issue persists, you can try clearing the Library folder. Close Unity, delete the `Library` folder in your project directory, and then reopen Unity. This will force Unity to reimport all assets and regenerate the Library folder.
+
+### Additional Tips
+
+- **Backup Your Project:**
+  - Before making any changes, it's always a good idea to backup your project to avoid any accidental data loss.
+
+- **Check for Other Duplicates:**
+  - Ensure there are no other duplicate assets in your project that might cause similar issues.
+
+### Example of Deleting the Duplicate Asset
+
+Here's a visual representation of what you need to do:
+
+![Delete Duplicate Asset](https://support.homagames.com/hs-fs/hubfs/Screenshot%202023-01-24%20at%2010.43.56.png?width=688&height=173&name=Screenshot%202023-01-24%20at%2010.43.56.png)
+
+If you follow these steps, the GUID conflict should be resolved, and you should be able to clean up your library folder without any issues.
+
+If you have any more questions or run into any other issues, feel free to reach out! 😊
+
+Happy coding! 🚀"
+IAPs for iOS not fetched,"Hey there! 😊
+
+It sounds like you're having trouble with In-App Purchases (IAPs) not being fetched on iOS. Let's go through some steps to troubleshoot this issue.
+
+### Steps to Troubleshoot IAPs Not Being Fetched on iOS
+
+1. **Check Your Catalog Configuration**:
+   - Ensure that your Homa Belly manifest includes the `homabelly_purchases` package and that all product SKUs are properly configured.
+   - Verify that the Catalog in your Unity project is correctly set up with the necessary product IDs, SKUs, and overrides for iOS.
+
+2. **Initialization**:
+   - Make sure you are initializing the Homa Store correctly at the start of your game. Here’s a sample code snippet for initialization:
+     ```csharp
+     public class PurchaseDemo : MonoBehaviour
+     {
+         private void Start()
+         {
+             // Initialize
+             HomaStore.OnProductsRetrieved += OnProductsRetrieved;
+             HomaStore.Initialize();
+         }
+
+         private void OnProductsRetrieved(Product[] products)
+         {
+             // Here you will receive the complete list of products
+             // fetched from the Store in case you want/need to iterate over
+             // them. Use this to display items, price, etc...
+         }
+     }
+     ```
+
+3. **Check for Errors**:
+   - Ensure there are no errors in the console that might indicate issues with fetching products. Common errors include connectivity issues or misconfigured product IDs.
+
+4. **Restore Purchases**:
+   - Sometimes, manually restoring purchases can help. You can call `HomaStore.RestorePurchases()` and listen to the `OnPurchasesRestored` callback to check the status of each product.
+     ```csharp
+     public void RestorePurchases()
+     {
+         HomaStore.OnPurchasesRestored += OnPurchasesRestored;
+         HomaStore.RestorePurchases();
+     }
+
+     private void OnPurchasesRestored(Product[] products)
+     {
+         // The products list will contain all products (purchased and not purchased)
+         // with their statuses updated. From now on, by querying HomaStore.GetProduct()
+         // you will also get the latest and updated status of each product
+     }
+     ```
+
+5. **Dynamic Products**:
+   - If you are using dynamic products, ensure that you are adding them correctly to the catalog and that they are being fetched properly.
+     ```csharp
+     public void FetchNewProducts()
+     {
+         HomaStore.AddDynamicProductsToCatalog(
+             new ProductSimpleDefinition(""your.product.sku"", ProductType.CONSUMABLE)
+         );
+     }
+     ```
+
+### Additional Resources
+
+- **RevenueCat Documentation**: Sometimes, issues can be related to RevenueCat. Check their [documentation](https://community.revenuecat.com/sdks-51/why-are-offerings-or-products-empty-124) for more insights.
+- **Homa Belly Purchases Documentation**: Refer to the [Homa Belly Purchases documentation](https://support.homagames.com/knowledge/subscriptions-google-play-base-plans) for detailed setup and troubleshooting steps.
+
+If you’ve gone through these steps and are still facing issues, it might be best to reach out to the Homa support team for further assistance.
+
+Feel free to come back if you have more questions or need further help! 🚀"
+"I'm getting this when trying to make a build of the game.
+
+A problem occurred evaluating settings 'Gradle'.
+> Could not find method dependencyResolutionManagement() for arguments [settings_7soecx61bn41hyzvwvg6dsm7x$_run_closure1@1670d069] on settings 'Gradle' of type org.gradle.initialization.DefaultSettings.","Hey there! 👋
+
+It looks like you're encountering an issue with Gradle while trying to build your game. This error typically occurs when there's a problem with the Gradle configuration in your project. Here are a few steps you can take to troubleshoot and resolve this issue:
+
+### 1. **Check Gradle Version Compatibility**
+Ensure that the version of Gradle you're using is compatible with your project. Sometimes, using an incompatible version can cause such issues.
+
+### 2. **Update Gradle Wrapper**
+You can try updating the Gradle wrapper to the latest version. To do this, open a terminal in your project directory and run:
+
+```sh
+./gradlew wrapper --gradle-version <latest_version>
+```
+
+Replace `<latest_version>` with the latest stable version of Gradle.
+
+### 3. **Review `settings.gradle` File**
+Make sure your `settings.gradle` file is correctly configured. It should look something like this:
+
+```groovy
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+```
+
+### 4. **Check for Plugin Compatibility**
+Ensure that all the plugins you're using in your `build.gradle` files are compatible with the version of Gradle you're using.
+
+### 5. **Clean and Rebuild**
+Sometimes, a simple clean and rebuild can resolve issues. Run the following commands:
+
+```sh
+./gradlew clean
+./gradlew build
+```
+
+### 6. **Check for Updates**
+Ensure that all your dependencies and tools are up to date. This includes the Android Gradle Plugin, Kotlin, and any other libraries you're using.
+
+### 7. **Example `settings.gradle`**
+Here's an example of a `settings.gradle` file for reference:
+
+```groovy
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = ""YourProjectName""
+include ':app'
+```
+
+If you've tried all these steps and are still encountering issues, it might be helpful to share more details about your `settings.gradle` and `build.gradle` files. This will allow for a more precise diagnosis.
+
+Feel free to reach out if you need further assistance! 😊"

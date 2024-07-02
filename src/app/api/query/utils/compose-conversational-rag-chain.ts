@@ -46,10 +46,12 @@ export const composeConversationalContextChain = async ({
   return async (followUpQuestion: string) => {
     const config: RunnableConfig = { configurable: { sessionId } }
 
-    const finalResult = await chainWithHistory.stream(
+    const finalResult = await chainWithHistory.invoke(
       { question: followUpQuestion },
       config
     );
+
+    return finalResult.content;
 
     return new ReadableStream({
       async start(controller) {

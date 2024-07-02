@@ -1,0 +1,12 @@
+﻿Question,Response (use https://dillinger.io/ to view results more nicely formatted),Helpful?,Issue type
+"I am unable to submit build for review on appstoreconnect. I didn't dd any game center entitlement myself. Did something change with HB setup?
+
+Here is the error I get when I click on ""add for review"" on appstoreconnect.
+
+To submit a build with the Game Center entitlement, you must select the Game Center checkbox.",,,
+Duplicate phoma sdk code when cleaning up the library folder I get these errors GUID [be4c2abe0582147efa9bc60bce57ef0c] for asset 'Packages/com.homagames.sdk-core/Analytics' conflicts with: 'Assets/Homa Games/Homa Belly/Core/Analytics' (current owner) We can't assign a new GUID because the asset is in an immutable folder. The asset will be ignored.,,,
+IAPs for iOS not fetched,,,
+"I'm getting this when trying to make a build of the game.
+
+A problem occurred evaluating settings 'Gradle'.
+> Could not find method dependencyResolutionManagement() for arguments [settings_7soecx61bn41hyzvwvg6dsm7x$_run_closure1@1670d069] on settings 'Gradle' of type org.gradle.initialization.DefaultSettings.",,,
