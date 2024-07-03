@@ -29,6 +29,9 @@ export const composeConversationalContextChain = async ({
         }
         return "";
       },
+      user_info: () => JSON.stringify({
+        role: 'External Developer',
+      })
     }),
     answerGenerationPrompt,
     llm,
