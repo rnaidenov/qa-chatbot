@@ -7,7 +7,7 @@ import { contextualizedQuestion } from "./contextualized-question";
 import { getMessageHistoryForSessionID } from "./get-message-history-for-session-id";
 import { ChatOpenAI } from "@langchain/openai";
 
-const createContextSummaryChain = (llm) => {
+const createContextSummaryChain = (llm: any) => {
   const contextSummaryPrompt = ChatPromptTemplate.fromTemplate(`
   Based on the following information, provide a brief internal summary of the user's context:
 
