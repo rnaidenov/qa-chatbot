@@ -119,15 +119,15 @@ export const composeConversationalContextChain = async ({
       config
     );
 
-    // return finalResult.content;
+    return finalResult.content;
 
-    return new ReadableStream({
-      async start(controller) {
-        for await (const chunk of finalResult) {
-          controller.enqueue(chunk.content);
-        }
-        controller.close();
-      },
-    });
+    // return new ReadableStream({
+    //   async start(controller) {
+    //     for await (const chunk of finalResult) {
+    //       controller.enqueue(chunk.content);
+    //     }
+    //     controller.close();
+    //   },
+    // });
   }
 };
