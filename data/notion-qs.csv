@@ -1,12 +1,41 @@
-﻿Question,Response (use https://dillinger.io/ to view results more nicely formatted),Helpful?,Issue type
+Question,Response (use https://dillinger.io/ to view results more nicely formatted),Issue type
+Game is ready for test. If okay can u check?,,Lab
+The game Farmer Life Simulator 3D is in preparation state and needs approval for testing. Here is the link: https://lab-v2.homagames.com/games/clvjmo95l00fvc7dv27n7pm7z/test-campaigns,,Lab
+"Where could I an App Privacy info for ""App Store Connect"" iOS?",,Lab
+the app on facebook is live but it is not checked neither is the ad app account id,,Lab
+"Hi
+May I ask you a question?
+I would like to test the game on iOS.
+The setup is already finished.
+What's the next step?",,Lab
+Could I get the rights of the game back when the game has bad KPI and you no longer want it?,,Lab
+Applovin MAX SDK key not found in manifest. Aborting build.,,Belly
+"After updating HB, Homa Games DataPrivacy Scene - has been removed from the build",,Belly
+"Interstetitial Ad
+I could implemented rewarded ads succesfully, however interstitials works on the editor not on devices",,Belly
+"IOS build issue with new plugin
+I updated the Homa plugin as in the guide. There were no errors during the update. But I get this error while building.
+
+Building Library/Bee/artifacts/iOS/ManagedStripped failed with output:
+/bin/sh: /Applications/Unity/Hub/Editor/2022.3.24f1/Unity.app/Contents/il2cpp/build/deploy/UnityLinker: No such file or directory
+legateListener.mm
+UnityEngine.GUIUtility:ProcessEvent (int,intptr,bool&) (at /Users/bokken/build/output/unity/unity/Modules/IMGUI/GUIUtility.cs:203)
+
+BuildFailedException: Player build failed: Building Library/Bee/artifacts/iOS/ManagedStripped failed with output:
+/bin/sh: /Applications/Unity/Hub/Editor/2022.3.24f1/Unity.app/Contents/il2cpp/build/deploy/UnityLinker: No such file or directory
+legateListener.mm
+UnityEditor.Modules.BeeBuildPostprocessor.PostProcess (UnityEditor.Modules.BuildPostProcessArgs args) (at /Users/bokken/build/output/unity/unity/Editor/Mono/Modules/BeeBuildPostprocessor.cs:725)
+UnityEditor.iOS.iOSBuildPostprocessor.PostProcess (UnityEditor.Modules.BuildPostProcessArgs args) (at <70c97341c0c5428e994d49f8a13d9edb>:0)
+UnityEngine.GUIUtility:ProcessEvent(Int32, IntPtr, Boolean&) (at /Users/bokken/build/output/unity/unity/Modules/IMGUI/GUIUtility.cs:203)",,Belly
+UserCentrics.h is missing while trying to build ios version,,Belly
 "I am unable to submit build for review on appstoreconnect. I didn't dd any game center entitlement myself. Did something change with HB setup?
 
 Here is the error I get when I click on ""add for review"" on appstoreconnect.
 
-To submit a build with the Game Center entitlement, you must select the Game Center checkbox.",,,
-Duplicate phoma sdk code when cleaning up the library folder I get these errors GUID [be4c2abe0582147efa9bc60bce57ef0c] for asset 'Packages/com.homagames.sdk-core/Analytics' conflicts with: 'Assets/Homa Games/Homa Belly/Core/Analytics' (current owner) We can't assign a new GUID because the asset is in an immutable folder. The asset will be ignored.,,,
-IAPs for iOS not fetched,,,
+To submit a build with the Game Center entitlement, you must select the Game Center checkbox.",,
+Duplicate phoma sdk code when cleaning up the library folder I get these errors GUID [be4c2abe0582147efa9bc60bce57ef0c] for asset 'Packages/com.homagames.sdk-core/Analytics' conflicts with: 'Assets/Homa Games/Homa Belly/Core/Analytics' (current owner) We can't assign a new GUID because the asset is in an immutable folder. The asset will be ignored.,,
+IAPs for iOS not fetched,,
 "I'm getting this when trying to make a build of the game.
 
 A problem occurred evaluating settings 'Gradle'.
-> Could not find method dependencyResolutionManagement() for arguments [settings_7soecx61bn41hyzvwvg6dsm7x$_run_closure1@1670d069] on settings 'Gradle' of type org.gradle.initialization.DefaultSettings.",,,
+> Could not find method dependencyResolutionManagement() for arguments [settings_7soecx61bn41hyzvwvg6dsm7x$_run_closure1@1670d069] on settings 'Gradle' of type org.gradle.initialization.DefaultSettings.",,
