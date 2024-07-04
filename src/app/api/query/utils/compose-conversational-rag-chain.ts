@@ -5,6 +5,26 @@ import { ComposeConversationalContextChainArgs } from './types';
 import { convertDocsToWrappedString } from "./convert-docs-to-string";
 import { contextualizedQuestion } from "./contextualized-question";
 import { getMessageHistoryForSessionID } from "./get-message-history-for-session-id";
+import { ChatOpenAI } from "@langchain/openai";
+
+const createContextSummaryChain = (llm) => {
+  const contextSummaryPrompt = ChatPromptTemplate.fromTemplate(`
+  Based on the following information, provide a brief internal summary of the user's context:
+
+  ONLY adhere to information provided in the context.
+
+  User Info: {user_info}
+  Context: {context}
+  Current Question: {question}
+
+  Summarize the user's main ask and whether they, given their role, can carry out the task themselves or will need support from <X> member of the team. 
+`);
+
+  return RunnableSequence.from([
+    contextSummaryPrompt,
+    llm,
+  ]);
+};
 
 export const composeConversationalContextChain = async ({
   sessionId,
@@ -20,21 +40,33 @@ export const composeConversationalContextChain = async ({
     ]
   ]);
 
+  const contextSummaryChain = createContextSummaryChain(llm);
+
   const answerChain = RunnableSequence.from([
     RunnablePassthrough.assign({
-      context: (input: Record<string, unknown>) => {
+      context: async (input: Record<string, unknown>) => {
         if ("history" in input) {
           const chain = contextualizedQuestion(input, { llm }) as RunnableSequence;
-          return chain.pipe(retriever).pipe(convertDocsToWrappedString);
+          const docs = await chain.pipe(retriever).invoke(input);
+
+          return convertDocsToWrappedString(docs);
         }
         return "";
       },
-      user_info: () => JSON.stringify({
-        role: 'External Developer',
-      })
+      user_info: (input: Record<string, unknown>) => "The user is an external developer",
+    }),
+    RunnablePassthrough.assign({
+      context_summary: async (input: Record<string, string>) => {
+        const summary = await contextSummaryChain.invoke({
+          user_info: input.user_info,
+          context: input.context,
+          question: input.question
+        });
+        return summary.content;
+      }
     }),
     answerGenerationPrompt,
-    llm,
+    llm
   ]);
 
   const messageHistory = getMessageHistoryForSessionID(sessionId);
@@ -54,7 +86,7 @@ export const composeConversationalContextChain = async ({
       config
     );
 
-    return finalResult.content;
+    // return finalResult.content;
 
     return new ReadableStream({
       async start(controller) {
