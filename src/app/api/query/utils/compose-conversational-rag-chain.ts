@@ -1,11 +1,12 @@
 import { ChatPromptTemplate, MessagesPlaceholder } from "@langchain/core/prompts";
 import { RunnableSequence, RunnablePassthrough, RunnableWithMessageHistory, RunnableConfig } from "@langchain/core/runnables";
 import { QA_CHAIN_TEMPLATE } from './consts';
-// import { MultiQueryRetriever } from "langchain/retrievers/multi_query";
+import { MultiQueryRetriever } from "langchain/retrievers/multi_query";
 import { ComposeConversationalContextChainArgs } from './types';
 import { convertDocsToWrappedString } from "./convert-docs-to-string";
 import { contextualizedQuestion } from "./contextualized-question";
 import { getMessageHistoryForSessionID } from "./get-message-history-for-session-id";
+import { ChatOpenAI } from "@langchain/openai";
 
 const createContextSummaryChain = (llm: any) => {
   const contextSummaryPrompt = ChatPromptTemplate.fromTemplate(`
@@ -32,26 +33,30 @@ const createContextSummaryChain = (llm: any) => {
   return RunnableSequence.from([contextSummaryPrompt, llm]);
 };
 
+// gpt3.5
+
+const gpt3_5 = new ChatOpenAI({ model: "gpt-3.5-turbo", temperature: 0 });
+
 // TODO: Cool, but not really needed. FOR NOW.
-// const generateQueries = async (question: string, llm: any, retriever: any) => {
-//   const retrieve = (question: string) => MultiQueryRetriever.fromLLM({
-//     llm,
-//     retriever: retriever,
-//     prompt: ChatPromptTemplate.fromMessages(
-//       ['system', `Given the following question, please generate 2-3 subqueries that would help in answering the main question. Focus on key concepts and actions mentioned.
+const generateQueries = async (question: string, llm: any, retriever: any) => {
+  const retrieve = (question: string) => MultiQueryRetriever.fromLLM({
+    llm,
+    retriever: retriever,
+    prompt: ChatPromptTemplate.fromMessages(
+      ['system', `Given the following question, please generate 2-3 subqueries that would help in answering the main question. Focus on key concepts and actions mentioned.
 
-//       Original question: {question}
+      Original question: {question}
 
-//       Subqueries:
-//       1.
-//       2.
-//       3. (optional)
-//       `],
-//     ),
-//   }).invoke(question);
+      Subqueries:
+      1.
+      2.
+      3. (optional)
+      `],
+    ),
+  }).invoke(question);
 
-//   return await retrieve(question);
-// };
+  return await retrieve(question);
+};
 
 export const composeConversationalContextChain = async ({
   sessionId,
@@ -75,8 +80,9 @@ export const composeConversationalContextChain = async ({
         if ("history" in input) {
           const chain = contextualizedQuestion(input, { llm }) as RunnableSequence
           const docs = await chain.pipe(retriever).invoke(input)
+          const queries = await generateQueries(input.question as string, gpt3_5, retriever);
 
-          return convertDocsToWrappedString(docs);
+          return convertDocsToWrappedString([...docs, ...Object.values(queries)]);
         }
         return "";
       },
