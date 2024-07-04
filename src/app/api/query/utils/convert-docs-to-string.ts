@@ -1,7 +1,7 @@
 import { Document } from "langchain/document";
 
-export const convertDocsToWrappedString = (documents: Document[]): string => {
-  return documents.map((document) => {
-    return `<doc>\n${document.pageContent}\n</doc>`
+export const convertDocsToWrappedString = (input: Document[] | string[]): string => {
+  return input.map((el) => {
+    return `<doc>\n${typeof el === 'string' ? el : el.pageContent}\n</doc>`
   }).join("\n");
 };
