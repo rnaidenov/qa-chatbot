@@ -16,22 +16,12 @@ const createContextSummaryChain = (llm: any) => {
   Context: {context}
   Current Question: {question}
 
-  ONLY use information provided in the context. Do not invent or assume additional details.
-  
-  ## Output format (only this):
-  [Concisely summarize the user's ability to perform the action, noting any blockers or need for external assistance]
-  
-  > Processing steps:
-  Action: Think through the action the user is attempting
-  Current Status: What is current state of the action? What has been done so far?
-  Remaining Steps: What are the steps left to complete the action? Which ones can the user perform and which require assistance?
-  Key Contacts: If applicable, consider what specific teams or roles (e.g. Publishing Manager) should the user contact for assistance. HomaLab is a platform, shouldn't include here.
-  
-  > Guidelines:
-  Keep the summary concise and directly relevant to the user's current request.
-  Do not explicitly state the user's role in the output.
-  Focus on identifying any actions that the user may not be able to perform and should delegate to others.
+  DO NOT ASSUME ANYTHING NOT EXPLICITLY STATED IN THE CONTEXT. EVERYTHING MUST BE DERIVED FROM THE PROVIDED INFORMATION.
+  IF NO EXPLICIT MENTION OF USER PERMISSIONS, ASSUME THEY CAN DO IT.
+  IF EXPLCIT MENTION OF EXTERNAL PERMISSIONS (e.g. only Publishing Manager can carry out check), STATE THAT THE USER CANNOT DO IT.
 
+  Output example: 
+  The user [can / cannot] fully perform the requested action [if cannot: because [reasoning (e.g. only Publishing Manager can carry out check)]].
 `);
 
   return RunnableSequence.from([contextSummaryPrompt, llm]);

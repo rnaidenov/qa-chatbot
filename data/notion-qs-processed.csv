@@ -1,250 +1,196 @@
 Question,Response
-Game is ready for test. If okay can u check?,"Great to hear that your game is ready for testing! Here are the steps you should follow to ensure everything is set up correctly:
+Game is ready for test. If okay can u check?,"Only the Publishing Manager can verify the creatives and finalize the test setup. Here are the steps you can follow to ensure everything is ready:
 
-### **1. App Setup and OS Checks**
-- **Ensure all setup checks are marked successful (green)**:
-  - Verify your game meets all criteria in Homa Lab.
-  - If any checks are missing, follow the guidelines to provide the necessary information.
-  - Refer to the [App & OS Setup guide](https://www.notion.so/homagames/Completing-App-OS-setup-checks-4c90cb08e5b14ab498a74278ce11f323) for detailed instructions.
+1. **App Setup and OS Checks:**
+   - Ensure all setup checks are marked with a successful status in Homa Lab.
+   - Refer to the [App & OS Setup guide](https://www.notion.so/homagames/Completing-App-OS-setup-checks-4c90cb08e5b14ab498a74278ce11f323) for detailed instructions.
 
-### **2. Creatives**
-- **Prepare and upload 6-8 creatives**:
-  - Ensure they meet the specific requirements.
-  - Upload them in the Testing tab under your upcoming test.
-  - Your Publishing Manager will verify them.
-  - Refer to the [Creative Requirements for Submissions](https://www.notion.so/homagames/Creatives-requirements-for-submissions-b5227f71318941038bc72bcb188fc9ef) for detailed guidelines.
+2. **Creatives:**
+   - Prepare 6-8 creatives that meet the specific requirements.
+   - Upload your creatives in the Testing tab under your upcoming test.
+   - Refer to the [Creative Requirements for Submissions](https://www.notion.so/homagames/Creatives-requirements-for-submissions-b5227f71318941038bc72bcb188fc9ef) guide for detailed guidelines.
 
-### **3. Verification by Publishing Manager**
-- **Contact your Publishing Manager**:
-  - They will verify the creatives and confirm that all checks are successfully completed before the test launch.
+3. **Contact Publishing Manager:**
+   - Inform your Publishing Manager that the game is ready for verification.
 
-If you need any further assistance or if something seems unclear, feel free to ask! If everything is set, your Publishing Manager will be the best person to finalize the preparations and launch the test."
-The game Farmer Life Simulator 3D is in preparation state and needs approval for testing. Here is the link: https://lab-v2.homagames.com/games/clvjmo95l00fvc7dv27n7pm7z/test-campaigns,"To proceed with the approval for testing your game ""Farmer Life Simulator 3D,"" you'll need assistance from a member of the HomaGames team, such as a Publishing Manager or someone from the Quality Assurance team. 
+If you need further assistance, please contact [HomaGames support](https://www.notion.so/homagames/Contact-Us-d8933cf704834a2fbb5fc37b7702c069)."
+The game Farmer Life Simulator 3D is in preparation state and needs approval for testing. Here is the link: https://lab-v2.homagames.com/games/clvjmo95l00fvc7dv27n7pm7z/test-campaigns,"It looks like the game ""Farmer Life Simulator 3D"" is in the preparation state and needs approval for testing. Only the Publishing Manager can verify and approve the game for testing.
 
-### Next Steps:
-1. **Contact HomaGames Support:**
-   - Reach out to HomaGames support through the [Contact Us](https://www.notion.so/homagames/Contact-Us-d8933cf704834a2fbb5fc37b7702c069) page.
-   - Provide them with the link to your test campaign and request approval.
+**Next Steps:**
+- Please contact your Publishing Manager to review and approve the game for testing.
+- If you need further assistance, you can reach out to [HomaGames support](https://www.notion.so/homagames/Contact-Us-d8933cf704834a2fbb5fc37b7702c069).
 
-2. **SiIT Slackbot:**
-   - If you have access, you can also contact the SiIT Slackbot for further assistance.
+Feel free to let me know if you have any other questions!"
+"Where could I an App Privacy info for ""App Store Connect"" iOS?","To find the App Privacy information for your iOS app on App Store Connect, follow these steps:
 
-### Information to Include:
-- Game Name: Farmer Life Simulator 3D
-- Link to Test Campaign: [Test Campaign Link](https://lab-v2.homagames.com/games/clvjmo95l00fvc7dv27n7pm7z/test-campaigns)
+1. **Log in to App Store Connect**: Go to [App Store Connect](https://appstoreconnect.apple.com/) and log in with your Apple Developer account.
 
-Feel free to reach out if you have any more questions or need further assistance! 😊"
-"Where could I an App Privacy info for ""App Store Connect"" iOS?","To find the App Privacy information for ""App Store Connect"" for your iOS application, follow these steps:
+2. **Select Your App**: From the dashboard, select the app for which you want to view or update the privacy information.
 
-1. **Log in to App Store Connect:**
-   - Go to [App Store Connect](https://appstoreconnect.apple.com/) and log in with your Apple Developer account.
+3. **Go to App Information**:
+   - Navigate to the **App Information** section under the **General** tab.
+   - Here, you will find the **Bundle ID**, **iPhone Store ID**, and **iPad Store ID**.
 
-2. **Select Your App:**
-   - In the App Store Connect dashboard, select the app for which you want to view or edit the App Privacy details.
-
-3. **Navigate to App Privacy:**
-   - Go to the **App Information** section.
+4. **App Privacy Section**:
    - Scroll down to the **App Privacy** section.
+   - Here, you can view and update the privacy practices for your app, including data collection and usage.
 
-4. **Review or Edit Privacy Details:**
-   - Here, you can review the existing privacy details or click on **Edit** to update the information.
-   - You will need to provide details about the data your app collects, how it is used, and whether it is linked to the user.
+For more detailed guidance, you can refer to the [Apple Developer documentation](https://developer.apple.com/documentation/appstoreconnectapi/appprivacy).
 
-For more detailed guidance, you can refer to Apple's official documentation on [App Privacy Details on the App Store](https://developer.apple.com/app-store/app-privacy-details/).
+If you need to add the iOS platform to your Facebook app, you can follow the guide [here](https://www.notion.so/How-to-add-iOS-platform-to-your-Facebook-app-5b38990e816943f696c262f39b333259).
 
-If you need further assistance, feel free to ask!"
-the app on facebook is live but it is not checked neither is the ad app account id,"To resolve the issue where your app on Facebook is live but the status is not being checked and the ad account ID is not being recognized, please follow these steps:
+If you have any further questions or need assistance, feel free to ask!"
+the app on facebook is live but it is not checked neither is the ad app account id,"To ensure your app on Facebook is fully set up and the ad account ID is correctly added, follow these steps:
 
-### 1. Verify App Live Status
-Ensure that your app is set to live mode on Facebook:
-- Go to your Facebook app dashboard.
-- Toggle on the **App Mode** to set it live.
+### **App Live on Facebook**
+1. **Toggle App Mode:**
+   - Go to your Facebook app dashboard.
+   - Ensure the App Mode is toggled to ""Live.""
 
-![App Live Toggle](https://support.homagames.com/hubfs/image-png-Sep-11-2023-09-23-53-2885-AM.png)
+   ![Toggle App Mode](https://support.homagames.com/hubfs/image-png-Sep-11-2023-09-23-53-2885-AM.png)
 
-### 2. Add Ad Account ID
-Make sure the ad account ID is correctly added in the ""Advertising Accounts"" field in your Facebook app settings:
-- Navigate to **Settings > Advanced** in your Facebook app dashboard.
-- Scroll down until you see the **Advertising Accounts** section.
-- Copy the ad account ID from the Homa Lab build checks and paste it into the **Advertising Accounts** field.
+### **Ad Account ID Added**
+1. **Copy Ad Account ID:**
+   - In the Homa Lab, navigate to the App & OS setup section.
+   - Copy the ad account ID provided there.
 
-![Advertising Accounts Field](https://support.homagames.com/hs-fs/hubfs/image-png-Feb-01-2024-09-08-23-6060-AM.png?width=688&height=332&name=image-png-Feb-01-2024-09-08-23-6060-AM.png)
+2. **Add Ad Account ID to Facebook:**
+   - Go to your Facebook app dashboard.
+   - Navigate to `Settings > Advanced`.
+   - Scroll down to the ""Advertising Accounts"" section.
+   - Paste the copied ad account ID into the ""Advertising Accounts"" field.
 
-### 3. Confirm App-ads.txt Configuration
-Ensure that your app-ads.txt file is correctly configured to include your Facebook app ID:
-- Add the following line to your app-ads.txt file, replacing `app ID` with your actual Facebook app ID:
-  ```
-  facebook.com, app ID, RESELLER, c3e20eee3f780d68
-  ```
-- Host this file at the root of your website domain, e.g., `https://www.yourwebsite.com/app-ads.txt`.
+   ![Add Ad Account ID](https://support.homagames.com/hs-fs/hubfs/image-png-Feb-01-2024-09-08-23-6060-AM.png?width=688&height=332&name=image-png-Feb-01-2024-09-08-23-6060-AM.png)
 
-### 4. Additional Checks
-- **Privacy Policy**: Ensure your app has a privacy policy URL set up.
-- **Platform Addition**: Verify that the required platforms (iOS/Android) are added to your Facebook app settings.
-
-If you have followed these steps and the issue persists, it may be necessary to contact HomaGames support for further assistance. They can help troubleshoot and resolve any underlying issues.
-
-For more detailed guidance, you can refer to the following documentation:
-- [Facebook App Creation Guide](https://support.homagames.com/knowledge/facebook-app-creation)
-- [Adding iOS Platform to Facebook App](https://support.homagames.com/knowledge/how-to-add-ios-platform-to-your-facebook-app)
-
-Feel free to reach out if you have any further questions!"
+### **Next Steps**
+- **Verify Checks:**
+  - After completing the above steps, return to Homa Lab and verify if the checks are now marked as completed.
+  
+If you continue to face issues, please contact [HomaGames support](https://www.notion.so/homagames/Contact-Us-d8933cf704834a2fbb5fc37b7702c069) for further assistance."
 "Hi
 May I ask you a question?
 I would like to test the game on iOS.
 The setup is already finished.
-What's the next step?","Of course! Since you've completed the setup for testing your game on iOS, here are the next steps you need to follow:
+What's the next step?","Hello! Sure, I'd be happy to help you with that.
 
-1. **Ensure All Build Checks Are Met:**
-   - Verify that all the build checks for iOS are successfully completed. This includes:
-     - **App & OS Setup:** Make sure all the necessary credentials and information are correctly entered.
-     - **App Live in the Store:** Ensure your app is live in the App Store of the country selected for the test.
+Since the setup is already finished, the next steps involve creating and launching the iOS test campaign. However, only Publishing Managers can create and launch the iOS test campaign. Here’s what you can do next:
 
-2. **Upload Required Creatives:**
-   - Prepare 6-8 creatives that meet the specific requirements for the test.
-   - Upload these creatives in the Testing tab under your upcoming test in Homa Lab.
+1. **Ensure All Checks are Met:**
+   - Verify that all setup checks are marked as successful in Homa Lab.
+   - Ensure your app is live in the App Store of the country selected for your test.
 
-### Helpful Guides:
-- [Completing App & OS Setup Checks](https://www.notion.so/homagames/Completing-App-OS-setup-checks-4c90cb08e5b14ab498a74278ce11f323)
-- [Creative Requirements for Submissions](https://www.notion.so/homagames/Creatives-requirements-for-submissions-b5227f71318941038bc72bcb188fc9ef)
+2. **Upload Creatives:**
+   - Prepare 6-8 creatives meeting the specific requirements.
+   - Upload these creatives in the Testing tab under your upcoming test.
 
-If you encounter any issues or need further assistance, you might need support from a Publishing Manager (PM) to verify the creatives and ensure all checks are successfully completed.
+3. **Contact Your Publishing Manager:**
+   - Inform your Publishing Manager that the setup is complete and the creatives are uploaded.
+   - They will handle the creation and launch of the iOS test campaign.
 
-Feel free to ask if you have any more questions! 😊"
-Could I get the rights of the game back when the game has bad KPI and you no longer want it?,"If your game has poor Key Performance Indicators (KPIs) and HomaGames decides not to continue with it, you can discuss reclaiming the rights to your game. To proceed with this, you should contact the publishing managers or the support team at HomaGames. They will guide you through the necessary steps to reclaim your game rights.
+For more detailed instructions, you can refer to the [App & OS Setup guide](https://www.notion.so/homagames/Completing-App-OS-setup-checks-4c90cb08e5b14ab498a74278ce11f323) and the [Creative Requirements for Submissions](https://www.notion.so/homagames/Creatives-requirements-for-submissions-b5227f71318941038bc72bcb188fc9ef).
 
-You can reach out to them via the [Contact Us](https://www.notion.so/homagames/Contact-Us-d8933cf704834a2fbb5fc37b7702c069) page for further assistance."
-Applovin MAX SDK key not found in manifest. Aborting build.,"To resolve the ""Applovin MAX SDK key not found in manifest. Aborting build."" error, you need to ensure that the Applovin MAX SDK key is correctly added to your project's manifest file. Here are the steps to do this:
+If you need further assistance, feel free to ask!"
+Could I get the rights of the game back when the game has bad KPI and you no longer want it?,"If you want to reclaim the rights to a game that has bad KPIs and is no longer pursued by HomaGames, the best course of action is to contact the HomaGames support team directly. They can provide specific guidance and discuss the possibility of reclaiming the rights.
 
-1. **Locate the Manifest File**:
-   - Open your project in your preferred IDE (e.g., Android Studio).
-   - Navigate to the `AndroidManifest.xml` file, typically found in the `app/src/main` directory.
+You can reach out to [HomaGames support](https://www.notion.so/homagames/Contact-Us-d8933cf704834a2fbb5fc37b7702c069) for further assistance."
+Applovin MAX SDK key not found in manifest. Aborting build.,"It looks like you're encountering an issue with the AppLovin MAX SDK key not being found in the manifest, which is causing the build to abort. Here are the steps to resolve this:
 
-2. **Add the Applovin MAX SDK Key**:
-   - Ensure that the following meta-data tag is included within the `<application>` tag in your `AndroidManifest.xml` file:
+1. **Check the Manifest File**:
+   - Ensure that the AppLovin MAX SDK key is correctly added to your `AndroidManifest.xml` file.
+   - The key should be added within the `<application>` tag as follows:
      ```xml
      <meta-data
          android:name=""applovin.sdk.key""
-         android:value=""YOUR_APPLOVIN_SDK_KEY"" />
+         android:value=""YOUR_SDK_KEY_HERE""/>
      ```
-   - Replace `YOUR_APPLOVIN_SDK_KEY` with your actual Applovin MAX SDK key.
 
-3. **Save and Rebuild**:
-   - Save the changes to the `AndroidManifest.xml` file.
-   - Rebuild your project to ensure the changes take effect.
+2. **Verify the SDK Key**:
+   - Double-check that the SDK key you are using is correct and has no typos.
 
-If you are unfamiliar with the specific requirements or steps to update the manifest, you may need support from a technical support member or a developer familiar with the Homa Belly SDK integration process.
+3. **Homa Belly Manifest Configuration**:
+   - If you are using Homa Belly, make sure that the SDK key is properly configured in the Homa Belly manifest settings.
 
-For further assistance, you can refer to the [Homa Belly SDK documentation](https://www.notion.so/homagames/Homa-Belly-SDK-797d4fade71742818a62cb0159206c27) or contact HomaGames support.
+4. **Rebuild the Project**:
+   - After making the necessary changes, rebuild your project to see if the issue is resolved.
 
-Feel free to ask if you have any more questions! 😊"
-"After updating HB, Homa Games DataPrivacy Scene - has been removed from the build","It sounds like the Homa Games DataPrivacy Scene was not included in your build after updating Homa Belly (HB). Here are some steps to help you resolve this issue:
+If you continue to face issues, please contact [HomaGames support](https://www.notion.so/homagames/Contact-Us-d8933cf704834a2fbb5fc37b7702c069) for further assistance."
+"After updating HB, Homa Games DataPrivacy Scene - has been removed from the build","It sounds like the DataPrivacy scene might not have been correctly integrated after the update. Here are a few steps to ensure it is properly included in your build:
 
-## Steps to Resolve Missing DataPrivacy Scene
+1. **Check Homa Belly Core Version**:
+   - Ensure you are using **Homa Belly Core v1.6.0** or later, as Data Privacy is embedded within the Core package starting from this version.
 
-### 1. Verify Homa Belly Core Version
-Ensure you are using **Homa Belly Core v1.6.0** or later, as the Data Privacy scene is embedded within the Core package starting from this version.
+2. **Verify Scene Inclusion**:
+   - Make sure the DataPrivacy scene is included in your build settings. Go to **File > Build Settings...** and check if the DataPrivacy scene is listed and enabled.
 
-### 2. Check Homa Belly Settings
-Make sure the Data Privacy settings are correctly configured in the Homa Belly settings:
+3. **Automatic Configuration**:
+   - Homa Belly should automatically add the DataPrivacy scene as the first scene of the builds. Ensure that this scene remains the first scene in your build order.
 
-- Go to **Window > Homa Games > Homa Belly > Settings**.
-- Ensure that the **Game Name** and other relevant fields under the **Data Privacy** section are properly filled out.
+4. **Manual Addition**:
+   - If the scene is missing, you can manually add it back. Locate the DataPrivacy scene in your project and drag it into the build settings.
 
-### 3. Confirm Scene Inclusion
-Verify that the DataPrivacy scene is included in your build settings:
+5. **Check Homa Belly Settings**:
+   - Go to **Window > Homa Games > Homa Belly > Settings** and ensure that all relevant settings, especially those related to Data Privacy, are correctly configured.
 
-- Go to **File > Build Settings...**.
-- Ensure that the DataPrivacy scene is listed as the first scene in the **Scenes in Build** section.
+If you continue to experience issues, you might want to consult the [Homa Belly Changelogs](https://support.homagames.com/changelogs/core) for any specific changes related to the DataPrivacy scene or contact [HomaGames support](https://www.notion.so/homagames/Contact-Us-d8933cf704834a2fbb5fc37b7702c069) for further assistance."
+"Interstetitial Ad
+I could implemented rewarded ads succesfully, however interstitials works on the editor not on devices","It sounds like you've successfully implemented rewarded ads but are facing issues with interstitial ads working on devices. Here are a few steps to troubleshoot and ensure your interstitial ads work correctly on devices:
 
-### 4. Manual Scene Addition
-If the scene is missing, you can manually add it:
-
-- Locate the DataPrivacy scene in your project files.
-- Drag and drop the DataPrivacy scene into the **Scenes in Build** section in the Build Settings.
-
-### 5. Code Integration
-Ensure that your code correctly invokes the Data Privacy UI when needed. Here’s a sample code snippet to show the Data Privacy settings:
+### **1. Verify Implementation**
+Ensure that your implementation follows the correct method calls for interstitial ads. Here’s a quick reference:
 
 ```csharp
-if (HomaGames.HomaBelly.DataPrivacy.Manager.IsGdprProtectedRegion) {
-    HomaGames.HomaBelly.DataPrivacy.Manager.Instance.ShowDataPrivacySettings(); 
+// Show interstitial
+HomaBelly.Instance.ShowInterstitial(""your_analytics_human_readable_ad_name"");
+```
+
+### **2. Check Ad Availability**
+Before attempting to show an interstitial ad, check if it is available:
+
+```csharp
+if (HomaBelly.Instance.IsInterstitialAvailable())
+{
+    HomaBelly.Instance.ShowInterstitial(""your_analytics_human_readable_ad_name"");
+}
+else
+{
+    Debug.Log(""Interstitial ad is not available."");
 }
 ```
 
-### 6. Rebuild the Project
-After making these changes, rebuild your project to ensure the DataPrivacy scene is included.
+### **3. Event Callbacks**
+Implement event callbacks to get more insights into what might be going wrong:
 
-## Additional Resources
-For more detailed information, you can refer to the [Data Privacy documentation](https://www.notion.so/homagames/Data-privacy-7d12f1632e3348b6a48ef0f5b3500a29).
+```csharp
+HomaGames.HomaBelly.Events.onInterstitialAdLoadFailedEvent += OnInterstitialAdLoadFailedEvent;
+HomaGames.HomaBelly.Events.onInterstitialAdShowFailedEvent += OnInterstitialAdShowFailedEvent;
 
-If you continue to experience issues, please feel free to reach out to HomaGames support for further assistance.
+private void OnInterstitialAdLoadFailedEvent(AdInfo adInfo)
+{
+    Debug.LogError(""Interstitial ad failed to load: "" + adInfo.PlacementId);
+}
 
----
+private void OnInterstitialAdShowFailedEvent(AdInfo adInfo)
+{
+    Debug.LogError(""Interstitial ad failed to show: "" + adInfo.PlacementId);
+}
+```
 
-If you have any more questions or need further assistance, feel free to ask! 😊"
-"Interstetitial Ad
-I could implemented rewarded ads succesfully, however interstitials works on the editor not on devices","It sounds like you've successfully implemented rewarded ads but are encountering issues with interstitial ads working on devices. Here are some steps to troubleshoot and resolve this issue:
+### **4. Network and Configuration**
+- Ensure your device has a stable internet connection.
+- Verify that your game is properly configured in Homa Lab to serve interstitial ads.
+- Check if there are any specific ad network configurations or restrictions that might be affecting ad delivery on devices.
 
-## Troubleshooting Steps
+### **5. Testing on Devices**
+- Make sure you are testing on a real device and not just the editor.
+- Check for any device-specific issues or logs that might indicate why the ads are not showing.
 
-1. **Check Initialization**:
-   Ensure that the Homa Belly SDK is properly initialized in your project. Initialization should be done before attempting to load or show any ads.
+### **6. Logs and Debugging**
+- Use `Debug.Log` statements to log the flow of your ad loading and showing process.
+- Check the device logs for any errors or warnings related to ad loading and displaying.
 
-2. **Correct Method Usage**:
-   Make sure you are using the correct method to show interstitial ads. Here is the basic code snippet to show an interstitial ad:
-   ```csharp
-   // Show interstitial
-   HomaBelly.Instance.ShowInterstitial(""your_analytics_human_readable_ad_name"");
-   ```
+If you have followed these steps and the issue persists, it might be helpful to contact [HomaGames support](https://www.notion.so/homagames/Contact-Us-d8933cf704834a2fbb5fc37b7702c069) for further assistance.
 
-3. **Ad Availability**:
-   Verify that the interstitial ad is available before attempting to show it. You can use the `IsInterstitialAvailable` method:
-   ```csharp
-   if (HomaBelly.Instance.IsInterstitialAvailable())
-   {
-       HomaBelly.Instance.ShowInterstitial(""your_analytics_human_readable_ad_name"");
-   }
-   else
-   {
-       // Handle the case where the ad is not available
-   }
-   ```
-
-4. **Check for Errors**:
-   Implement event listeners to catch any errors or issues during the ad loading and showing process. Here are some useful callbacks:
-   ```csharp
-   HomaGames.HomaBelly.Events.onInterstitialAdLoadFailedEvent += OnInterstitialAdLoadFailedEvent;
-   HomaGames.HomaBelly.Events.onInterstitialAdShowFailedEvent += OnInterstitialAdShowFailedEvent;
-
-   private void OnInterstitialAdLoadFailedEvent(AdInfo adInfo)
-   {
-       Debug.LogError(""Interstitial ad failed to load: "" + adInfo.PlacementId);
-   }
-
-   private void OnInterstitialAdShowFailedEvent(AdInfo adInfo)
-   {
-       Debug.LogError(""Interstitial ad failed to show: "" + adInfo.PlacementId);
-   }
-   ```
-
-5. **Manifest Configuration**:
-   Ensure that your Homa Belly manifest is correctly configured. Sometimes, issues on devices can be due to misconfigurations in the manifest.
-
-6. **Network and Device Logs**:
-   Check the device logs for any network-related issues or errors that might be preventing the ads from loading. Ensure that the device has a stable internet connection.
-
-7. **Ad Network Integration**:
-   Verify that all required ad network SDKs are correctly integrated and up-to-date. Sometimes, issues can arise from outdated or improperly integrated SDKs.
-
-## Next Steps
-
-If you've gone through these steps and the issue persists, it might be necessary to get more specific support. Here are your options:
-
-- **Contact HomaGames Support**: Reach out to HomaGames support for more detailed assistance. They can help diagnose issues specific to your implementation.
-- **SiIT Slackbot**: If you have access, you can also contact the SiIT Slackbot for immediate support.
-
-Feel free to follow up with any additional questions or details about the issue you're facing!"
+Feel free to reach out if you need more help!"
 "IOS build issue with new plugin
 I updated the Homa plugin as in the guide. There were no errors during the update. But I get this error while building.
 
@@ -258,169 +204,131 @@ BuildFailedException: Player build failed: Building Library/Bee/artifacts/iOS/Ma
 legateListener.mm
 UnityEditor.Modules.BeeBuildPostprocessor.PostProcess (UnityEditor.Modules.BuildPostProcessArgs args) (at /Users/bokken/build/output/unity/unity/Editor/Mono/Modules/BeeBuildPostprocessor.cs:725)
 UnityEditor.iOS.iOSBuildPostprocessor.PostProcess (UnityEditor.Modules.BuildPostProcessArgs args) (at <70c97341c0c5428e994d49f8a13d9edb>:0)
-UnityEngine.GUIUtility:ProcessEvent(Int32, IntPtr, Boolean&) (at /Users/bokken/build/output/unity/unity/Modules/IMGUI/GUIUtility.cs:203)","It looks like you're encountering an issue with a missing `UnityLinker` file during the iOS build process after updating the Homa plugin. Here are a few steps you can take to resolve this issue:
+UnityEngine.GUIUtility:ProcessEvent(Int32, IntPtr, Boolean&) (at /Users/bokken/build/output/unity/unity/Modules/IMGUI/GUIUtility.cs:203)","It looks like you're encountering an issue related to the UnityLinker not being found during the build process. Here are some steps you can take to resolve this:
 
-### 1. Verify Unity Installation
-Ensure that your Unity installation is complete and that the required files are present. Sometimes, files can be missing or corrupted.
+### **Steps to Resolve**
 
-- **Reinstall Unity**: Reinstall the specific version of Unity you're using (2022.3.24f1) to ensure all necessary files are in place.
+1. **Verify Unity Installation:**
+   - Ensure that your Unity installation is complete and not corrupted. You can do this by re-installing the specific Unity version (2022.3.24f1) via the Unity Hub.
 
-### 2. Check IL2CPP Installation
-Make sure that the IL2CPP scripting backend is properly installed in your Unity Editor.
+2. **Check IL2CPP Installation:**
+   - Make sure that the IL2CPP module is installed for your Unity version. You can verify this in the Unity Hub under the ""Installs"" tab by clicking on the three dots next to your Unity version and selecting ""Add Modules.""
 
-- **Open Unity Hub**: Go to the ""Installs"" tab.
-- **Locate Your Unity Version**: Click on the three dots next to your Unity version and select ""Add Modules"".
-- **Ensure IL2CPP is Checked**: Make sure the ""iOS Build Support"" and ""IL2CPP"" options are checked and installed.
+3. **Update Homa Plugin:**
+   - Ensure that you have the latest version of the Homa plugin. Sometimes, updates can fix compatibility issues.
 
-### 3. Update Cocoapods
-If you are using an Apple M1 chipset machine, you might encounter issues with Cocoapods. Follow these steps to update Cocoapods:
+4. **Clean and Rebuild:**
+   - Delete the `Library` and `Temp` folders in your Unity project directory. This will force Unity to re-import all assets and rebuild the project from scratch.
 
-- **Open Terminal**: Navigate to your Unity XCode generated project folder.
-- **Run the Following Commands**:
-  ```sh
-  arch -x86_64 pod install --repo-update
-  ```
-  If this does not resolve the issue, then:
-  ```sh
-  gem uninstall cocoapods
-  brew install cocoapods
-  ```
+5. **Check Build Settings:**
+   - Ensure that your build settings are correctly configured for iOS. Go to `File > Build Settings` and verify that the target platform is set to iOS and that all necessary settings are configured.
 
-### 4. Contact HomaGames Support
-If the above steps do not resolve the issue, it might be necessary to get support from HomaGames. They can provide more specific guidance based on your project setup.
+6. **Check for Missing Files:**
+   - Verify that the `UnityLinker` file exists in the specified path. If it doesn't, re-installing Unity or the IL2CPP module should resolve this.
 
-- **Contact HomaGames Support**: Reach out to HomaGames support through the [Contact Us](https://www.notion.so/homagames/Contact-Us-d8933cf704834a2fbb5fc37b7702c069) page.
+### **Additional Resources**
 
-### Summary
-- **Reinstall Unity** to ensure all files are present.
-- **Verify IL2CPP installation** in Unity Hub.
-- **Update Cocoapods** if using an Apple M1 chipset.
-- **Contact HomaGames Support** if the issue persists.
+- **Unity Documentation:** [Unity IL2CPP](https://docs.unity3d.com/Manual/IL2CPP.html)
+- **Homa Games Support:** If the issue persists, you may want to contact [HomaGames support](https://www.notion.so/homagames/Contact-Us-d8933cf704834a2fbb5fc37b7702c069) for further assistance.
 
-Feel free to follow up if you have any more questions or need further assistance!"
-UserCentrics.h is missing while trying to build ios version,"If you're encountering an issue where the `UserCentrics.h` file is missing while building the iOS version of your project, here are some steps you can take to troubleshoot and resolve the issue:
+By following these steps, you should be able to resolve the build issue. If you continue to experience problems, please provide more details or reach out to support for more in-depth troubleshooting."
+UserCentrics.h is missing while trying to build ios version,"It sounds like you're encountering an issue with a missing `UserCentrics.h` file during your iOS build. Here are a few steps you can take to resolve this:
 
-### 1. **Check Podfile and Pod Installation**
-Ensure that your `Podfile` includes the necessary dependencies for UserCentrics. Open your `Podfile` and verify that it contains the required pod for UserCentrics. If not, add it and run `pod install`.
+1. **Check Podfile**:
+   Ensure that the `UserCentrics` pod is included in your `Podfile`. It should look something like this:
+   ```ruby
+   pod 'UserCentrics'
+   ```
 
-```ruby
-pod 'UserCentrics'
-```
+2. **Install Pods**:
+   Run the following commands in your project directory to install the necessary pods:
+   ```sh
+   pod install --repo-update
+   ```
 
-After updating the `Podfile`, run the following command in your terminal:
+3. **Verify Pod Installation**:
+   After running `pod install`, check the `Pods` directory in your project to ensure that the `UserCentrics` pod has been installed correctly.
 
-```sh
-pod install --repo-update
-```
+4. **Clean and Rebuild**:
+   Sometimes, Xcode might need a clean build to recognize new files. Try cleaning the build folder and rebuilding the project:
+   - In Xcode, go to `Product` > `Clean Build Folder` (or press `Shift + Command + K`).
+   - Then, rebuild your project.
 
-### 2. **Update Cocoapods**
-Make sure you are using the latest version of Cocoapods. An outdated version might not fetch the required dependencies correctly.
+5. **Check Header Search Paths**:
+   Ensure that the header search paths in your Xcode project settings include the path to the `UserCentrics` headers. You can do this by:
+   - Selecting your project in the Project Navigator.
+   - Going to `Build Settings`.
+   - Searching for `Header Search Paths`.
+   - Adding the path to the `UserCentrics` headers if it's not already there.
 
-```sh
-gem install cocoapods
-pod --version  # Ensure it is 1.13.0 or higher
-```
-
-### 3. **Clean and Rebuild the Project**
-Sometimes, Xcode might have cached issues. Cleaning the build folder and rebuilding the project can help.
-
-- In Xcode, go to `Product` > `Clean Build Folder` (or press `Shift + Command + K`).
-- Then, rebuild your project.
-
-### 4. **Check for Bitcode Issues**
-If you encounter bitcode-related issues, you might need to disable bitcode for your project. Here’s how:
-
-- Open your project in Xcode.
-- Go to `Build Settings`.
-- Search for `Enable Bitcode`.
-- Set it to `No`.
-
-![Disable Bitcode](https://support.homagames.com/hs-fs/hubfs/Screenshot%202023-01-24%20at%2010.43.11.png?width=688&height=176&name=Screenshot%202023-01-24%20at%2010.43.11.png)
-
-### 5. **Verify File Paths and Imports**
-Ensure that the `UserCentrics.h` file is correctly referenced in your project. Check the file paths and import statements in your code.
-
-### 6. **Contact HomaGames Support**
-If the issue persists, it might be related to proprietary SDKs or configurations unique to HomaGames. In this case, contacting HomaGames support for specific guidance would be the best course of action.
-
-You can reach out to them via the [Contact Us](https://www.notion.so/homagames/Contact-Us-d8933cf704834a2fbb5fc37b7702c069) page for further assistance.
-
-By following these steps, you should be able to resolve the missing `UserCentrics.h` file issue. If you need further assistance, feel free to ask!"
+If these steps do not resolve the issue, please provide more details about the error message or any other relevant information. This will help in diagnosing the problem more accurately."
 "I am unable to submit build for review on appstoreconnect. I didn't dd any game center entitlement myself. Did something change with HB setup?
 
 Here is the error I get when I click on ""add for review"" on appstoreconnect.
 
-To submit a build with the Game Center entitlement, you must select the Game Center checkbox.","It sounds like the Game Center entitlement was automatically added during the Homa Belly (HB) setup. To resolve this issue, you need to enable the Game Center capability in your App Store Connect settings. Here’s how you can do it:
+To submit a build with the Game Center entitlement, you must select the Game Center checkbox.","It seems like the Game Center entitlement is being flagged during your submission process. This can happen if the Game Center capability is enabled in your Xcode project, even if you didn't explicitly add it.
 
-### Steps to Enable Game Center in App Store Connect
+Here are the steps to resolve this issue:
 
-1. **Log in to App Store Connect:**
-   - Go to [App Store Connect](https://appstoreconnect.apple.com/).
+1. **Check Game Center Capability in Xcode:**
+   - Open your project in Xcode.
+   - Select your project in the Project Navigator.
+   - Go to the **Signing & Capabilities** tab.
+   - Look for the **Game Center** capability. If it's enabled, you can either:
+     - Disable it if your game does not use Game Center.
+     - Or, if your game does use Game Center, ensure that you have configured it correctly in App Store Connect.
 
-2. **Select Your App:**
-   - Navigate to ""My Apps"" and select the app you are trying to submit.
+2. **Update App Store Connect:**
+   - If you decide to keep the Game Center capability enabled, go to your app in App Store Connect.
+   - Navigate to the **App Information** section.
+   - Ensure that the **Game Center** checkbox is selected.
 
-3. **Go to the Capabilities Section:**
-   - In the app's dashboard, click on the ""Features"" tab.
-   - Select ""Game Center"" from the list of capabilities.
+3. **Rebuild and Resubmit:**
+   - After making the necessary changes in Xcode, rebuild your project.
+   - Upload the new build to App Store Connect.
+   - Try submitting the build for review again.
 
-4. **Enable Game Center:**
-   - Check the box to enable Game Center.
-   - Configure any additional settings if required.
+If you continue to face issues, please contact [HomaGames support](https://www.notion.so/homagames/Contact-Us-d8933cf704834a2fbb5fc37b7702c069) for further assistance."
+Duplicate phoma sdk code when cleaning up the library folder I get these errors GUID [be4c2abe0582147efa9bc60bce57ef0c] for asset 'Packages/com.homagames.sdk-core/Analytics' conflicts with: 'Assets/Homa Games/Homa Belly/Core/Analytics' (current owner) We can't assign a new GUID because the asset is in an immutable folder. The asset will be ignored.,"It looks like you're encountering a GUID conflict due to duplicate assets in your project. This typically happens when the same asset exists in multiple locations within your project. Here’s how you can resolve this issue:
 
-5. **Save Changes:**
-   - Make sure to save your changes.
+### Steps to Resolve GUID Conflict
 
-6. **Rebuild and Resubmit:**
-   - Rebuild your app in Xcode and ensure the Game Center entitlement is included.
-   - Upload the new build to App Store Connect and try submitting it for review again.
+1. **Identify the Duplicate Assets:**
+   - The error message indicates that the asset `Analytics` exists in both `Packages/com.homagames.sdk-core/Analytics` and `Assets/Homa Games/Homa Belly/Core/Analytics`.
 
-### Additional Notes
-
-- If you did not intend to use Game Center and want to remove the entitlement, you might need to adjust your project settings in Xcode:
-  - Open your project in Xcode.
-  - Go to the ""Signing & Capabilities"" tab.
-  - Locate the Game Center capability and disable it.
-
-If you continue to experience issues or need further clarification on why the Game Center entitlement was included, it might be helpful to contact the Homa Belly SDK team for support.
-
-Feel free to reach out if you have any more questions or need further assistance! 😊"
-Duplicate phoma sdk code when cleaning up the library folder I get these errors GUID [be4c2abe0582147efa9bc60bce57ef0c] for asset 'Packages/com.homagames.sdk-core/Analytics' conflicts with: 'Assets/Homa Games/Homa Belly/Core/Analytics' (current owner) We can't assign a new GUID because the asset is in an immutable folder. The asset will be ignored.,"It looks like you're encountering a GUID conflict error due to duplicate assets in your project. This issue arises because the same asset exists in both the `Packages/com.homagames.sdk-core/Analytics` and `Assets/Homa Games/Homa Belly/Core/Analytics` folders. Since the asset in the `Packages` folder is immutable, Unity cannot assign a new GUID to resolve the conflict.
-
-### Steps to Resolve the GUID Conflict
-
-1. **Identify the Source of the Conflict:**
-   - Determine which version of the asset you need to keep. Typically, the version in the `Packages` folder is the one managed by the SDK, while the one in the `Assets` folder might be a local copy.
-
-2. **Remove the Duplicate Asset:**
-   - If the asset in the `Assets` folder is not necessary, you can safely delete it to resolve the conflict.
-   - Navigate to `Assets/Homa Games/Homa Belly/Core/Analytics` and delete the conflicting asset.
+2. **Remove the Duplicate:**
+   - Decide which version of the asset you want to keep. Typically, you should keep the version in the `Packages` folder as it is managed by the package manager.
+   - Delete the duplicate asset from the `Assets` folder:
+     - Navigate to `Assets/Homa Games/Homa Belly/Core/Analytics`.
+     - Delete the `Analytics` folder or file.
 
 3. **Reimport the Project:**
-   - After removing the duplicate asset, reimport your project to ensure that Unity updates its asset database.
-   - Go to `Assets > Reimport All` in the Unity Editor.
+   - After deleting the duplicate asset, reimport your project to ensure that Unity updates its asset database.
+     - In Unity, go to `Assets` > `Reimport All`.
 
-### If the Issue Persists
+4. **Clear the Library Folder (Optional):**
+   - If the issue persists, you can try clearing the Library folder:
+     - Close Unity.
+     - Navigate to your project directory and delete the `Library` folder.
+     - Reopen Unity, which will regenerate the `Library` folder.
 
-If the above steps do not resolve the issue, or if you are unsure about which asset to keep, it is best to contact HomaGames support for further assistance. They can provide guidance specific to the Homa Belly SDK and help ensure that your project is set up correctly.
+### Additional Tips
 
-### Contact HomaGames Support
+- **Backup Your Project:**
+  - Before making any changes, ensure you have a backup of your project to prevent any data loss.
 
-You can reach out to HomaGames support through the following channels:
-- **SiIT Slackbot:** For quick internal support.
-- **HomaGames Support Page:** [Contact Us](https://www.notion.so/homagames/Contact-Us-d8933cf704834a2fbb5fc37b7702c069)
+- **Check for Other Duplicates:**
+  - Ensure there are no other duplicate assets in your project that might cause similar issues.
 
-Feel free to ask if you have any more questions or need further assistance! 😊"
+By following these steps, you should be able to resolve the GUID conflict and clean up your project. If you continue to experience issues, please contact [HomaGames support](https://www.notion.so/homagames/Contact-Us-d8933cf704834a2fbb5fc37b7702c069) for further assistance."
 IAPs for iOS not fetched,"If your In-App Purchases (IAPs) for iOS are not being fetched, here are some steps you can follow to troubleshoot and resolve the issue:
 
-### 1. Verify Homa Belly Manifest
-Ensure that your Homa Belly manifest includes the `homabelly_purchases` package and that all product SKUs are properly configured. If you don't have this information, contact your publish manager.
+### **1. Verify Product Configuration**
+- Ensure that your Homa Belly manifest includes the `homabelly_purchases` package.
+- Check that all product SKUs are properly configured in the Catalog within your Unity project.
 
-### 2. Check the Catalog Configuration
-Make sure the Catalog is correctly set up within your Unity project. You can modify the Catalog within the Unity Editor, and any changes will be preserved unless the **Restore to defaults** button is pressed.
-
-### 3. Initialization
-Ensure that you are initializing the HomaStore correctly at the beginning of your game. Here is a sample code snippet for initialization:
+### **2. Initialization**
+- Make sure you are initializing the Homa Store correctly at the start of your game. Here is a sample code snippet for initialization:
 
 ```csharp
 public class PurchaseDemo : MonoBehaviour
@@ -441,99 +349,70 @@ public class PurchaseDemo : MonoBehaviour
 }
 ```
 
-### 4. Error Handling
-Check for common errors that might be causing the issue:
+### **3. Check for Errors**
+- Look for any error messages in your logs that might indicate why the products are not being fetched. Common errors include connectivity issues or misconfigured product IDs.
 
-- **Error 2 - There was a problem with the store**: This error indicates a problem connecting with the store, which could be due to store servers being down or connection failures. If everything was working during testing, you might not need to handle this error in production.
-- **Error 3 - The device or user is not allowed to make the purchase**: This error can occur if the credit card is not valid, has insufficient funds, or if the user is under parental control restrictions.
+### **4. Restore Catalog**
+- If the Catalog was wrongly configured, you can restore it to defaults. This will clean up any modifications and configure it from scratch with the remotely configured values.
 
-### 5. Manual Purchase Initiation
-If you want to manually initiate a purchase, use the following code:
+### **5. Dynamic Products**
+- If you need to fetch products that are not present in the Homa Belly Purchases Catalog, you can use the `HomaStore.AddDynamicProductsToCatalog` method. Here is an example:
 
 ```csharp
-public void InitiatePurchase(string productSku)
+public void FetchNewProducts()
 {
-    HomaStore.PurchaseProduct(productSku);
-}
-
-private void OnPurchaseSuccessForProduct(Product product)
-{
-    // Product has been successfully purchased
-}
-
-private void OnPurchaseFailedWithError(Error error, Product product)
-{
-    // Purchase failed
+    HomaStore.AddDynamicProductsToCatalog(
+#if UNITY_ANDROID
+        new ProductSimpleDefinition(""com.example.iap.test.subscription"", ProductType.SUBSCRIPTION),
+        new ProductSimpleDefinition(""com.example.iap.test.consumable"", ProductType.CONSUMABLE),
+        new ProductSimpleDefinition(""com.example.iap.test.nonconsumable"", ProductType.NON_CONSUMABLE)
+#elif UNITY_IOS
+        new ProductSimpleDefinition(""com.example.iap.test.subscription"", ProductType.SUBSCRIPTION),
+        new ProductSimpleDefinition(""com.example.iap.test.consumable"", ProductType.CONSUMABLE),
+        new ProductSimpleDefinition(""com.example.iap.test.nonconsumable"", ProductType.NON_CONSUMABLE)
+#endif
+    );
 }
 ```
 
-### 6. Restoring Purchases
-To manually trigger a purchase restore, use the following code:
+### **6. RevenueCat Integration**
+- If you are using RevenueCat, ensure that your products are correctly set up in the RevenueCat dashboard. You can refer to RevenueCat's [troubleshooting guide](https://community.revenuecat.com/sdks-51/why-are-offerings-or-products-empty-124) for more details.
 
-```csharp
-public void RestorePurchases()
-{
-    HomaStore.OnPurchasesRestored += OnPurchasesRestored;
-    HomaStore.RestorePurchases();
-}
+### **7. Contact Support**
+- If the issue persists, it might be best to contact [HomaGames support](https://www.notion.so/homagames/Contact-Us-d8933cf704834a2fbb5fc37b7702c069) for further assistance.
 
-private void OnPurchasesRestored(Product[] products)
-{
-    // The products list will contain all products (purchased and not purchased)
-    // with their statuses updated.
-}
-```
-
-### 7. Further Assistance
-If you have followed all the steps and the issue persists, it might be necessary to contact the technical support team for deeper technical issues or server-side problems affecting the IAPs. You can reach out to them via the [Contact Us](https://www.notion.so/homagames/Contact-Us-d8933cf704834a2fbb5fc37b7702c069) page.
-
-For more detailed information, you can refer to the [Homa Belly Purchases documentation](https://www.notion.so/homagames/Homa-Belly-purchases-API-reference-89e15f948bc2411186814c3d4c48c298).
-
-Feel free to ask if you need further assistance!"
+By following these steps, you should be able to identify and resolve the issue with your iOS IAPs not being fetched. If you need more detailed guidance, feel free to ask!"
 "I'm getting this when trying to make a build of the game.
 
 A problem occurred evaluating settings 'Gradle'.
-> Could not find method dependencyResolutionManagement() for arguments [settings_7soecx61bn41hyzvwvg6dsm7x$_run_closure1@1670d069] on settings 'Gradle' of type org.gradle.initialization.DefaultSettings.","It looks like you're encountering an issue with your Gradle configuration. This error typically occurs when the `dependencyResolutionManagement` method is not recognized, which can happen if you're using an older version of Gradle that doesn't support this method.
+> Could not find method dependencyResolutionManagement() for arguments [settings_7soecx61bn41hyzvwvg6dsm7x$_run_closure1@1670d069] on settings 'Gradle' of type org.gradle.initialization.DefaultSettings.","It looks like you're encountering an issue with the `Gradle` settings in your project. This error typically occurs when there is a mismatch or misconfiguration in the `Gradle` version or the `build.gradle` files.
 
-Here are a few steps you can take to resolve this issue:
+Here are some steps to help you resolve this issue:
 
-### 1. **Check Gradle Version**
-Ensure that you are using a compatible version of Gradle. The `dependencyResolutionManagement` method is available in Gradle 6.8 and later. You can check your Gradle version by running the following command in your terminal:
-
-```sh
-gradle -v
-```
-
-### 2. **Update Gradle Wrapper**
-If you're using an older version, you can update the Gradle wrapper to a newer version. Open your `gradle/wrapper/gradle-wrapper.properties` file and update the `distributionUrl` to a newer version, for example:
+### **1. Check Gradle Version**
+Ensure that you are using a compatible version of Gradle. You can specify the Gradle version in the `gradle-wrapper.properties` file:
 
 ```properties
-distributionUrl=https\://services.gradle.org/distributions/gradle-7.0.2-bin.zip
+distributionUrl=https\://services.gradle.org/distributions/gradle-6.8.3-all.zip
 ```
 
-### 3. **Modify `settings.gradle`**
-Ensure that your `settings.gradle` file is correctly configured. It should look something like this:
+### **2. Update `settings.gradle`**
+Make sure your `settings.gradle` file is correctly configured. It should not contain the `dependencyResolutionManagement` method if you are using an older version of Gradle. Here is an example of a basic `settings.gradle` file:
 
 ```groovy
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
+rootProject.name = 'YourProjectName'
+include ':app'
 ```
 
-### 4. **Sync Project with Gradle Files**
-After making these changes, sync your project with the Gradle files. In Android Studio, you can do this by clicking on `File` > `Sync Project with Gradle Files`.
+### **3. Sync Project with Gradle Files**
+After making changes, sync your project with the Gradle files. In Android Studio, you can do this by clicking on `File` > `Sync Project with Gradle Files`.
 
-### 5. **Clean and Rebuild**
-Finally, clean and rebuild your project to ensure that all changes are applied correctly. You can do this by running:
+### **4. Clean and Rebuild**
+Try cleaning and rebuilding your project to ensure that all changes are applied correctly. You can do this by clicking on `Build` > `Clean Project` and then `Build` > `Rebuild Project`.
 
-```sh
-./gradlew clean build
-```
+### **5. Check for Updates**
+Ensure that all your dependencies and plugins are up to date. Sometimes, outdated dependencies can cause conflicts.
 
-If you continue to experience issues, it might be helpful to contact HomaGames support or use the SiIT Slackbot for further assistance. They can provide more specific guidance based on your project setup.
+If the issue persists, please provide more details about your `build.gradle` and `settings.gradle` files, and any recent changes you might have made to the project configuration.
 
-Feel free to ask if you have any more questions or need further assistance!"
+Feel free to reach out if you need further assistance!"
