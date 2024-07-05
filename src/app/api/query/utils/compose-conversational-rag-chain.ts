@@ -23,100 +23,101 @@ const createContextSummaryChain = (llm: any) => {
   The user [can / cannot] fully perform the requested action [if cannot: because [reasoning (e.g. only Publishing Manager can carry out check)]].
 `);
 
+  return RunnableSequence.from([contextSummaryPrompt, llm]);
+};
 
-  // gpt3.5
+// gpt3.5
 
-  // const gpt3_5 = new ChatOpenAI({ model: "gpt-3.5-turbo", temperature: 0 });
+// const gpt3_5 = new ChatOpenAI({ model: "gpt-3.5-turbo", temperature: 0 });
 
-  // TODO: Cool, but not really needed. FOR NOW.
-  // const generateQueries = async (question: string, llm: any, retriever: any) => {
-  //   const retrieve = (question: string) => MultiQueryRetriever.fromLLM({
-  //     llm,
-  //     retriever: retriever,
-  //     prompt: ChatPromptTemplate.fromMessages(
-  //       ['system', `Given the following question, please generate 2-3 subqueries that would help in answering the main question. Focus on key concepts and actions mentioned.
+// TODO: Cool, but not really needed. FOR NOW.
+// const generateQueries = async (question: string, llm: any, retriever: any) => {
+//   const retrieve = (question: string) => MultiQueryRetriever.fromLLM({
+//     llm,
+//     retriever: retriever,
+//     prompt: ChatPromptTemplate.fromMessages(
+//       ['system', `Given the following question, please generate 2-3 subqueries that would help in answering the main question. Focus on key concepts and actions mentioned.
 
-  //       Original question: {question}
+//       Original question: {question}
 
-  //       Subqueries:
-  //       1.
-  //       2.
-  //       3. (optional)
-  //       `],
-  //     ),
-  //   }).invoke(question);
+//       Subqueries:
+//       1.
+//       2.
+//       3. (optional)
+//       `],
+//     ),
+//   }).invoke(question);
 
-  //   return await retrieve(question);
-  // };
+//   return await retrieve(question);
+// };
 
-  export const composeConversationalContextChain = async ({
-    sessionId,
-    retriever,
-    llm
-  }: ComposeConversationalContextChainArgs) => {
-    const answerGenerationPrompt = ChatPromptTemplate.fromMessages([
-      ["system", QA_CHAIN_TEMPLATE],
-      new MessagesPlaceholder("history"),
-      [
-        "human",
-        "{question}"
-      ]
-    ]);
+export const composeConversationalContextChain = async ({
+  sessionId,
+  retriever,
+  llm
+}: ComposeConversationalContextChainArgs) => {
+  const answerGenerationPrompt = ChatPromptTemplate.fromMessages([
+    ["system", QA_CHAIN_TEMPLATE],
+    new MessagesPlaceholder("history"),
+    [
+      "human",
+      "{question}"
+    ]
+  ]);
 
-    const contextSummaryChain = createContextSummaryChain(llm);
+  const contextSummaryChain = createContextSummaryChain(llm);
 
-    const answerChain = RunnableSequence.from([
-      RunnablePassthrough.assign({
-        context: async (input: Record<string, unknown>) => {
-          if ("history" in input) {
-            const chain = contextualizedQuestion(input, { llm }) as RunnableSequence
-            const docs = await chain.pipe(retriever).invoke(input)
+  const answerChain = RunnableSequence.from([
+    RunnablePassthrough.assign({
+      context: async (input: Record<string, unknown>) => {
+        if ("history" in input) {
+          const chain = contextualizedQuestion(input, { llm }) as RunnableSequence
+          const docs = await chain.pipe(retriever).invoke(input)
 
-            return convertDocsToWrappedString(docs);
-          }
-          return "";
-        },
-      }),
-      RunnablePassthrough.assign({
-        user_rights: async (input: Record<string, string>) => {
-          const summary = await contextSummaryChain.invoke({
-            user_info: "The user is an external developer",
-            context: input.context,
-            question: input.question
-          });
-          console.log("🚀 ~ context_summary: ~ summary.content:", summary.content)
-          return summary.content;
+          return convertDocsToWrappedString(docs);
         }
-      }),
-      answerGenerationPrompt,
-      llm
-    ]);
+        return "";
+      },
+    }),
+    RunnablePassthrough.assign({
+      user_rights: async (input: Record<string, string>) => {
+        const summary = await contextSummaryChain.invoke({
+          user_info: "The user is an external developer",
+          context: input.context,
+          question: input.question
+        });
+        console.log("🚀 ~ context_summary: ~ summary.content:", summary.content)
+        return summary.content;
+      }
+    }),
+    answerGenerationPrompt,
+    llm
+  ]);
 
-    const messageHistory = getMessageHistoryForSessionID(sessionId);
+  const messageHistory = getMessageHistoryForSessionID(sessionId);
 
-    const chainWithHistory = new RunnableWithMessageHistory({
-      runnable: answerChain,
-      getMessageHistory: (_sessionId: string) => messageHistory,
-      inputMessagesKey: "question",
-      historyMessagesKey: "history",
+  const chainWithHistory = new RunnableWithMessageHistory({
+    runnable: answerChain,
+    getMessageHistory: (_sessionId: string) => messageHistory,
+    inputMessagesKey: "question",
+    historyMessagesKey: "history",
+  });
+
+  return async (followUpQuestion: string) => {
+    const config: RunnableConfig = { configurable: { sessionId } }
+
+    const finalResult = await chainWithHistory.stream(
+      { question: followUpQuestion },
+      config
+    );
+
+    return new ReadableStream({
+      async start(controller) {
+        for await (const chunk of finalResult) {
+          controller.enqueue(chunk.content);
+        }
+        controller.close();
+      },
     });
-
-    return async (followUpQuestion: string) => {
-      const config: RunnableConfig = { configurable: { sessionId } }
-
-      const finalResult = await chainWithHistory.stream(
-        { question: followUpQuestion },
-        config
-      );
-
-      return new ReadableStream({
-        async start(controller) {
-          for await (const chunk of finalResult) {
-            controller.enqueue(chunk.content);
-          }
-          controller.close();
-        },
-      });
-    }
-  };
+  }
 };
