@@ -12,6 +12,7 @@ import { PineconeIndex } from "./pinecone-index";
 import { MatryoshkaRetriever } from "langchain/retrievers/matryoshka_retriever";
 import { Chroma } from "@langchain/community/vectorstores/chroma";
 import { QdrantVectorStore } from "@langchain/qdrant";
+import { VectorStore } from "@langchain/core/vectorstores";
 
 
 export const loadAndEmbedDocuments = async (
@@ -34,7 +35,7 @@ export const loadAndEmbedDocuments = async (
     url: process.env.QDRANT_URL || "http://localhost:6333",
     apiKey: process.env.QDRANT_API_KEY,
     collectionName: "qa-chatbot",
-  })
+  });
 
   const retriever = new MatryoshkaRetriever({
     vectorStore,
@@ -62,6 +63,9 @@ export const loadAndEmbedDocuments = async (
   // });
 };
 
+// measure performance
+// const start = performance.now();
 // await loadAndEmbedDocuments('./notion');
-
-// await PineconeIndex.RagApp.deleteAll();
+// await loadAndEmbedDocuments('./hg-damysus-sdk-documentation');
+// const end = performance.now();
+// console.log('Execution time: ', end - start);

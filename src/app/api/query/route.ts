@@ -15,7 +15,7 @@ const largeEmbeddings = new OpenAIEmbeddings({
 
 const handleResponse = async (sessionId: string, question: string): Promise<ReadableStream<string>> => {
   try {
-    const llm = new ChatOpenAI({ model: "gpt-4o", temperature: 0 });
+    const llm = new ChatOpenAI({ model: "gpt-4o", temperature: 0, streaming: true  });
 
     const vectorStore = new QdrantVectorStore(smallEmbeddings, {
       url: process.env.QDRANT_URL,

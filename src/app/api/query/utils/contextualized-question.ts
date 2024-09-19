@@ -1,6 +1,6 @@
 import { StringOutputParser } from "@langchain/core/output_parsers";
 import { ChatPromptTemplate, MessagesPlaceholder } from "@langchain/core/prompts";
-import { CONTEXT_CHAIN_TEMPLATE, REPHRASE_QUESTION_SYSTEM_TEMPLATE } from "./consts";
+import { CONTEXT_CHAIN_TEMPLATE, REPHRASE_QUESTION_SYSTEM_TEMPLATE } from './consts';
 import { RunnableLike } from "@langchain/core/runnables";
 import { ChatOpenAI } from "@langchain/openai";
 

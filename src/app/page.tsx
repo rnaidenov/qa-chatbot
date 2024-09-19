@@ -134,7 +134,7 @@ export default function Home() {
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ sessionId: localStorage.getItem('sessionId') || Date.now().toString(), question: messages[messages.length - 1].text }),
+            body: JSON.stringify({ sessionId: localStorage.getItem('chat-bot-session-id') || Date.now().toString(), question: messages[messages.length - 1].text }),
           });
 
           if (!response.body) {
