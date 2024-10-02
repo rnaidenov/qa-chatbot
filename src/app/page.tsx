@@ -126,6 +126,8 @@ export default function Home() {
           return;
         }
 
+        const sessionId = localStorage.getItem('chat-bot-session-id') ?? '2';
+
         let lastMessageUpdate = messages[messages.length - 1];
 
         try {
@@ -134,7 +136,7 @@ export default function Home() {
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ sessionId: localStorage.getItem('chat-bot-session-id') || Date.now().toString(), question: messages[messages.length - 1].text }),
+            body: JSON.stringify({ sessionId, question: messages[messages.length - 1].text }),
           });
 
           if (!response.body) {
@@ -165,7 +167,7 @@ export default function Home() {
           const question = messages[messages.length - 1];
 
           mixpanel.track('[HomaSage]: Track performance', {
-            sessionId: localStorage.getItem('sessionId'),
+            sessionId: sessionId,
             performanceMilliseconds: lastBotMessagePerformance.current,
             model: 'langchain',
             question,
