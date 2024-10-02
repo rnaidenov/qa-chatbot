@@ -13,7 +13,8 @@ import { sessionIdToUserRole } from './session-id-to-user-role';
 
 const createContextSummaryChain = (llm: RunnableLike) => {
   const contextSummaryPrompt = ChatPromptTemplate.fromTemplate(`
-  Based on the provided information, summarize the user's ability to perform the requested action:
+  Based on the provided information, summarize the user's ability to perform the requested action. 
+  If the question is not related to Homa Games' products, services (incl. SDK), or internal processes, please state the question is out of scope.
 
   User role: {user_info}
   Context: {context}
@@ -25,6 +26,7 @@ const createContextSummaryChain = (llm: RunnableLike) => {
 
   Output example: 
   The user [can / cannot] fully perform the requested action [if cannot: because [reasoning (e.g. only Publishing Manager can carry out check)]].
+  The question is [relevant / not relevant] to Homa Games' products, services (incl. SDK), or internal processes.
 `);
 
   return RunnableSequence.from([contextSummaryPrompt, llm]);
@@ -54,7 +56,7 @@ const createAnswerChain = (llm: RunnableLike, retriever: RunnableLike, userRole:
       },
     }),
     RunnablePassthrough.assign({
-      user_rights: async (input: Record<string, string>) => {
+      internal_processing: async (input: Record<string, string>) => {
         console.log("The asking user is " + userRole);
         const summary = await contextSummaryChain.invoke({
           user_info: "The asking user is " + userRole,
