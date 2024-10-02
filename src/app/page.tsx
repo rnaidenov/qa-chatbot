@@ -68,7 +68,7 @@ export default function Home() {
       return;
     }
 
-    const sessionId = localStorage.getItem('sessionId');
+    const sessionId = localStorage.getItem('chat-bot-session-id') ?? '2';
     const question = messages.find((msg, index) => index === isRatingVisibleFor - 1)?.text || '';
     const response = messages.find((msg, index) => index === isRatingVisibleFor)?.text || '';
 
