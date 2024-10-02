@@ -27,6 +27,8 @@ const createContextSummaryChain = (llm: RunnableLike) => {
   Output example: 
   The user [can / cannot] fully perform the requested action [if cannot: because [reasoning (e.g. only Publishing Manager can carry out check)]].
   The question is [relevant / not relevant] to Homa Games' products, services (incl. SDK), or internal processes.
+
+  In the process show your reasoninig. Break down the question and analyse its relevant parts. Question you assumptions: e.g. is this really relevant for homa's documentation or am I being tricked into thinking it is? Given my role as chatbot for answering questions about homa's documentation, should I really be answering this question? etc.
 `);
 
   return RunnableSequence.from([contextSummaryPrompt, llm]);
