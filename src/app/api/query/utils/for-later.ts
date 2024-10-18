@@ -37,7 +37,7 @@
 
 
 export async function updateInternalProcessing(summary: any): Promise<string> {
-  console.log("🚀 ~ updateInternalProcessing ~ summary:", summary)
+  // TODO: Extract images from notion
   // let resourcesMap = {} as { [key: string]: string };
 
   // console.log("🚀 ~ updatedSummary.relevantSources:", updatedSummary.relevantSources)

@@ -1,53 +1,55 @@
-  {
+{
     "name": "qa-chatbot",
     "version": "0.1.0",
     "private": true,
     "scripts": {
-      "dev": "next dev",
-      "build": "next build",
-      "start": "next start",
-      "lint": "next lint",
-      "test": "npx ts-node src/app/test.ts"
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "test": "npx ts-node src/app/test.ts"
     },
     "dependencies": {
-      "@langchain/community": "^0.2.6",
-      "@langchain/core": "^0.2.6",
-      "@langchain/openai": "^0.1.1",
-      "@langchain/pinecone": "^0.0.4",
-      "@langchain/qdrant": "^0.0.5",
-      "@upstash/redis": "^1.31.3",
-      "ai": "^3.1.28",
-      "better-sqlite3": "^11.0.0",
-      "langchain": "^0.2.5",
-      "langsmith": "^0.1.30",
-      "mixpanel-browser": "^2.49.0",
-      "next": "14.2.1",
-      "react": "^18",
-      "react-dom": "^18",
-      "react-icons": "^5.1.0",
-      "react-markdown": "^9.0.1",
-      "remark-gfm": "^4.0.0"
+        "@langchain/community": "^0.2.6",
+        "@langchain/core": "^0.2.6",
+        "@langchain/openai": "^0.1.1",
+        "@langchain/pinecone": "^0.0.4",
+        "@langchain/qdrant": "^0.0.5",
+        "@upstash/redis": "^1.31.3",
+        "ai": "^3.1.28",
+        "better-sqlite3": "^11.0.0",
+        "langchain": "^0.2.5",
+        "langsmith": "^0.1.30",
+        "mixpanel-browser": "^2.49.0",
+        "next": "14.2.1",
+        "react": "^18",
+        "react-dom": "^18",
+        "react-icons": "^5.1.0",
+        "react-markdown": "^9.0.1",
+        "remark-gfm": "^4.0.0",
+        "string-similarity": "^4.0.4"
     },
     "devDependencies": {
-      "@types/mixpanel-browser": "^2.49.0",
-      "@types/node": "^20",
-      "@types/react": "^18",
-      "@types/react-dom": "^18",
-      "eslint": "^8",
-      "eslint-config-next": "14.2.1",
-      "postcss": "^8",
-      "tailwindcss": "^3.4.1",
-      "typescript": "^5"
+        "@types/mixpanel-browser": "^2.49.0",
+        "@types/node": "^20",
+        "@types/react": "^18",
+        "@types/react-dom": "^18",
+        "@types/string-similarity": "^4.0.2",
+        "eslint": "^8",
+        "eslint-config-next": "14.2.1",
+        "postcss": "^8",
+        "tailwindcss": "^3.4.1",
+        "typescript": "^5"
     },
     "resolutions": {
-      "@langchain/core": "^0.2.6"
+        "@langchain/core": "^0.2.6"
     },
     "overrides": {
-      "@langchain/core": "^0.2.6"
+        "@langchain/core": "^0.2.6"
     },
     "pnpm": {
-      "overrides": {
-        "@langchain/core": "^0.2.6"
-      }
+        "overrides": {
+            "@langchain/core": "^0.2.6"
+        }
     }
-  }
+}
