@@ -23,7 +23,6 @@ export const contextualizedQuestion = (input: Record<string, unknown>, opts?: { 
   return input.question;
 };
 
-
 const contextualizedSummaryPrompt = ChatPromptTemplate.fromMessages([
   ["system", CONTEXT_CHAIN_TEMPLATE],
   new MessagesPlaceholder("history"),
