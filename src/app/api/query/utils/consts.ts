@@ -274,10 +274,9 @@ export const RELEVANCY_CHECK_TEMPLATE = `
 # Task: Determine the relevance and permissibility of the user's question to Homa Games' products, services, or internal processes.
 
 ## Instructions:
-
 ### Contextual Analysis:
   - Break down the question into its key components.
-  - Analyze each part for relevance to Homa Games' products, services, or internal processes.
+  - Does the question align with Homa Games' scope? If not, mark it as out of scope.
 
 ### Relevance Assessment:
   - Determine if the question is within the scope of Homa Games' products, services (including SDK), or internal processes.
@@ -289,16 +288,19 @@ export const RELEVANCY_CHECK_TEMPLATE = `
   - Consider if the action involves providing general programming advice, scripts, or code unrelated to Homa Games.
   - If the action involves sharing sensitive information or performing tasks outside of Homa Games' scope, mark it as not permissible.
 
-#### Ensure that you return the full! document with the relevant information highlighted in bold.
+### Context data extraction: 
+  - Extract the relevant context data from the chat history and documents.
+  - Any reference to images in the format ![image_id](image_url) should be included in the analysis. 
 
 ### Response Template:
 
 Context: {context}
+Format Instructions:  {format_instructions}
 User Role: {user_info}
 Current Question: {question}
 
-### Reasoning:
-[Provide a detailed analysis of the question, examining its relevance and permissibility. Explain why the question is or isn't related to Homa Games, and why the requested action should or shouldn't be performed by the AI assistant.]
+### Analysis:
+[Provide a detailed analysis of the question, examining its relevance and permissibility. Explain why the question is or isn't related to Homa Games, and why the requested action should or shouldn't be performed by the AI assistant. Also, consisder the top-matching document(s) from the context.]
 `;
 
 export const RESPONSE_TEMPLATE = `
